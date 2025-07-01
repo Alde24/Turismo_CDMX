@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/mapa.css" />
+    <title>Mapa con Indicaciones</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">Rutas con Maps</h1>
+    <div id="config">
+      <label for="inicio">Inicio:</label>
+      <input
+        id="inicio"
+        type="text"
+        placeholder="Ejemplo: ESCOM, CDMX"
+        value="ESCOM, CDMX"
+      />
+      <label for="destino">Destino:</label>
+      <input
+        id="destino"
+        type="text"
+        placeholder="Ejemplo: Estadio Azteca, CDMX"
+        value="Estadio Azteca, CDMX"
+      />
+      <label for="escalas">Escalas (separadas por coma):</label>
+      <input
+        id="escalas"
+        type="text"
+        placeholder="Ejemplo: Bellas Artes, Auditorio Nacional"
+      />
+      <label for="modo">Modo de transporte:</label>
+      <select id="modo">
+        <option value="DRIVING">Manejando</option>
+        <option value="WALKING">Caminando</option>
+        <option value="TRANSIT">Transporte Público</option>
+      </select>
+      <button onclick="calcularRuta()">Mostrar Ruta</button>
+    </div>
+    <div id="container">
+      <div id="mapa"></div>
+      <div id="sidebar">
+        <p>Distancia Total: <span id="total"></span></p>
+        <div id="panel"></div>
+      </div>
+    </div>
+    <script src="../js/mapa.js"></script>
+    <!-- Cargar la API de Google Maps -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlBfvcJxLHgYnFMJBbgLmdzIS_mI2QZZQ&libraries=places&callback=iniciarMapa"
+    ></script>
+  </body>
+</html>

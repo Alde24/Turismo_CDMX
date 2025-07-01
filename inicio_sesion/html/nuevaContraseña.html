@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/nuevaContra.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <main class="container-fluid">
+        <div class="regresar">
+            <a href="" class="regresarBtn">
+              <i class="bi bi-arrow-left-circle-fill"></i>
+            </a>
+          </div>
+        <section class="container-fluid login-container d-flex flex-column flex-md-row p-0">
+          <div class="col-md-6 d-flex justify-content-center align-items-center p-0 m-0">
+  
+                <form id="PasswordForm"  method="POST" class="login-form w-100 h-100 " autocomplete="off" novalidate="novalidate">
+                    <div class="text-center iniciarseesion mb-5">Cambiar contraseña</div>
+                    <div class="d-flex row g-3 mb-3 w-100 align-items-center">
+                        <div class="flex-item position-relative">
+                            <label for="password" class="form-label">Contraseña:</label>
+                            <input type="password" name="password" id="password" class="form-input form-control" placeholder="Ingresa tu contraseña" required>
+                            <i class="bi bi-eye-slash-fill toggle-password" id="togglePassword1"></i>
+                            <small id="passwordError" class="form-label text-danger" style="display: none;"></small>
+                        </div>
+                        <div class="flex-item position-relative">
+                            <label for="confirm_password" class="form-label">Confirmar contraseña:</label>
+                            <input type="password" id="confirm_password" name="confirm_password"class="form-input form-control" placeholder="Reingresa tu contraseña" required>
+                            <i class="bi bi-eye-slash-fill toggle-password" id="togglePassword2"></i>
+                            <small id="comfirmPasswordError" class="form-label text-danger" style="display: none;"></small>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-button btn btn-primary w-100 mt-3">Confirmar contraseña nueva</button>
+                
+                </form>
+            
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center welcome-column p-4">
+                <div class="text-center welcome-content">
+                    <h2 class="welcome-message">Recuperemos tu contraseña</h2>
+                    <img src="../../inimgs/pest.png" alt="Welcome illustration" class="img-fluid welcome-image mt-3">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!-- Pie de página con información adicional, enlaces o derechos de autor -->
+    </footer>
+    <!-- Modal confirmacion para token-->
+    <div class="modal fade" id="succesModalToken" tabindex="-1" aria-labelledby="succesModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header colorprincipal">
+            <h1 class="modal-title fs-5" id="succesModalLabel">Sólo un paso más</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="d-lg-flex align-items-center">
+                <div id="succesModalBody">
+                  <div class="d-flex">
+                    <h6 id="modalMessageToken" class="mensajeModalConfirmacion">1<!-- Aquí se inserta el mensaje de confirmacion --></h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+            
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- Modal confirmacion para confirmacion-->
+  <div class="modal fade" id="succesModal" tabindex="-1" aria-labelledby="succesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header colorprincipal">
+          <h1 class="modal-title fs-5" id="succesModalLabel">Sólo un paso más</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="d-lg-flex align-items-center">
+              <div id="succesModalBody">
+                <div class="d-flex">
+                  <h6 id="modalMessage" class="mensajeModalConfirmacion">1<!-- Aquí se inserta el mensaje de confirmacion --></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn_conf" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+          
+        </div>
+      </div>
+    </div>
+</div>
+    <!-- Div Modal / mensajes de error -->
+    <!-- Modal -->
+  <!-- Modal Error -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Upps! Parece que hubo un error</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-8 d-lg-flex align-items-center">
+                <div class="textError" id="errorModalBody">
+
+                </div><!-- Mensaje de error irá aquí -->
+            </div>
+            <div class="col-lg-4 ms-auto contErrorImg">
+                <!-- Foto de mascota error -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+</div>
+     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+      <script src="../../js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../error/error.js"></script>
+    <script src="../js/nuevaContraseña.js"></script>
+</body>
+</html>

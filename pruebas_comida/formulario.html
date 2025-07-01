@@ -1,0 +1,52 @@
+<form method="POST" action="consulta.php">
+    <!-- Fecha de inicio y fin -->
+    <div class="form-group">
+        <label for="inicio">Fecha de inicio del viaje:</label>
+        <input type="date" id="inicio" name="inicio" required>
+    </div>
+
+    <div class="form-group">
+        <label for="fin">Fecha de fin del viaje:</label>
+        <input type="date" id="fin" name="fin" required>
+    </div>
+
+    <!-- Lugar de destino -->
+    <div class="form-group">
+        <label for="destino">Lugar de destino:</label>
+        <input type="text" id="destino" name="destino" placeholder="Ej. Ciudad o país" required>
+    </div>
+
+    <!-- Prioridad para la comida -->
+    <div class="form-group">
+        <label for="prioridad_comida">¿Qué tan importante es la comida para ti durante el viaje? (1 - 10):</label>
+        <input type="range" id="prioridad_comida" name="prioridad_comida" min="1" max="10" required>
+    </div>
+
+    <!-- Distancia de la comida -->
+    <div class="form-group">
+        <label for="distancia_comida">¿A qué distancia te gustaría estar de la comida (en metros)?</label>
+        <input type="number" id="distancia_comida" name="distancia_comida" min="0" max="5000" required>
+    </div>
+
+    <!-- Presupuesto aproximado para la comida -->
+    <div class="form-group">
+        <label for="presupuesto_comida">Presupuesto aproximado para la comida (por día):</label>
+        <input type="number" id="presupuesto_comida" name="presupuesto_comida" min="0" required>
+    </div>
+
+    <!-- Tipo de establecimiento -->
+    <div class="form-group">
+        <label for="establecimiento_comida">¿En qué tipo de establecimiento te gustaría comer?</label>
+        <div class="options">
+            <label><input type="checkbox" name="establecimiento_comida[]" value="Restaurante"> Restaurante</label>
+            <label><input type="checkbox" name="establecimiento_comida[]" value="Cocina económica"> Cocina económica</label>
+            <label><input type="checkbox" name="establecimiento_comida[]" value="Cadenas comerciales"> Cadenas comerciales</label>
+            <label><input type="checkbox" name="establecimiento_comida[]" value="Comida tradicional"> Comida tradicional</label>
+        </div>
+    </div>
+
+    <!-- Botón para enviar -->
+    <div class="form-group">
+        <button type="submit">Consultar con API</button>
+    </div>
+</form>

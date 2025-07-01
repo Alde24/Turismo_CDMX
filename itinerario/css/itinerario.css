@@ -1,0 +1,350 @@
+main {
+    font-family: 'Open Sans';
+}
+
+.exit-icon {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.tab {
+    background-color: #f4e0f0;
+    color: #7d4c61;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.tab.selected {
+    background-color: #7d4c61;
+    color: #fff;
+}
+
+
+/*Estilos para las 3 secciones*/
+.section {
+    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.579);
+    border-radius: 20px;
+}
+
+.section.hidden {
+    display: none;
+}
+
+
+#calendar h3, #itinerary h3, #map h3, .activity-content h3 {
+    font: 'Montserrat';
+    text-transform: uppercase;
+    color: #a13c64;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.button{
+    cursor: pointer;
+}
+
+
+/* Calendario */
+.day-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.day-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.day-card img {
+    border-radius: 8px;
+    width: 100%;
+    max-height: 7.2rem;
+    margin-bottom: 1rem;
+}
+
+.day-card h5, .activity-content h5 {
+    color: #8e447d;
+    font-weight: bold;
+}
+
+.day-card .fecha {
+    color: #d196a3;
+}
+
+.day-card p {
+    color: #666;
+}
+
+/* Estilos para "itinerario" */
+#day-select {
+    border-radius: 30px;
+    width: 175px;
+    background-color: #a13c64;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+#day-select:hover{
+    cursor: pointer;
+}
+
+#day-select option {
+    background-color: white; 
+    color: #a13c64;
+    font-weight: bold;
+}
+#day-select-Iti {
+    border-radius: 30px;
+    background-color: #a13c64;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+#day-select-Iti:hover{
+    cursor: pointer;
+}
+
+#day-select-Iti option {
+    background-color: white; 
+    color: #a13c64;
+    font-weight: bold;
+}
+
+#day-select-Map {
+    border-radius: 30px;
+    background-color: #a13c64;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+#day-select-Map:hover{
+    cursor: pointer;
+}
+
+#day-select-Map option {
+    background-color: white; 
+    color: #a13c64;
+    font-weight: bold;
+}
+
+
+.hidden{
+    display: none;
+}
+
+
+.activity-card {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+}
+
+
+.activity-card .iti{
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.activity-content p, .activity-price span {
+    color: #666;
+}
+
+
+.activity-price p {
+    font-weight: bold;
+    color: #333;
+}
+
+
+
+/*Estilos mapa*/
+.ins-card span{
+    color: rgb(158, 158, 158);
+    font-style: italic;
+    font-size: medium;
+}
+
+
+.ins-card img{
+    width: 50%;
+    height: 55%;
+}
+
+
+.ins-card{
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    overflow: hidden; 
+    align-items: center;
+}
+
+.instrucciones{
+    overflow-y: auto;
+}
+
+.map-card {
+    position: relative; 
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden; 
+    margin-bottom: 5%;
+    padding: .5rem;
+}
+
+.map-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    border-radius: 10px;
+    z-index: 0;
+}
+
+.texto {
+    background-color: #0000005d;
+    z-index: 1;
+    position: relative; 
+    width: 100%;
+    height: 5rem;
+    border-radius: 10px;
+    margin-top: 0.3rem;
+    padding: 1rem;
+}
+
+
+.texto h3{
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.map-card p{
+    color: rgb(192, 192, 192);
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: left;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+.route{
+    min-width: max-content;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    height: 500px;
+    border: none;
+}
+
+
+#mapaAPI {
+    width: 100%; 
+    height: 30rem;
+    border: 1px solid #ccc; 
+    border-radius: 2rem;
+    box-sizing: border-box; 
+}
+
+
+#map .icon{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50rem;
+}
+
+#map .icon:hover{
+    cursor: pointer;
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+}
+
+
+/*Boton de finalizar viaje*/
+.finish-trip {
+    border-radius: 10px;
+    background-color: #a13c64;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.finish-trip:hover{
+    border-color: #a13c64;
+    background-color: white;
+    color: #a13c64;
+}
+.btn-secondary{
+    background-color: #BD6085;
+    border: none;    
+}
+.btn-secondary:hover{
+    background-color: #A13C64;
+}
+
+.btn-primary{
+    background-color: #7e7e7e;
+    color: #fff;
+    border: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+.btn-primary:hover{
+    background-color: #A13C64;
+    color: #fff;
+}
+/* Cambiar el color al hacer click */
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #d086a4 !important; /* Forzar el color */
+  color: #fff;
+  box-shadow: none; /* Elimina el sombreado por defecto de Bootstrap */
+  border: none;     /* Evita bordes adicionales */
+}
+
+
+@media(max-width:991px){
+    .day-card img {
+        max-height: 12rem;
+    }
+
+    .activity-card img {
+        max-height: 5rem;
+    }
+}
+
+@media(max-width:768px){
+    .activity-card img {
+        max-height: 5rem;
+    }
+}

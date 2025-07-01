@@ -1,0 +1,390 @@
+.profile-image {
+    width: 30px;
+    border-radius: 50%;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.pink-background {
+    background-color: #a13c64;
+    width: 90%; 
+    height: 160px;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 40px; 
+    position: relative;
+    z-index: 1; 
+}
+
+.edit-profile {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: -160px; 
+    z-index: 2; 
+}
+
+.back-button {
+    border-radius: 50%;
+    color: white; 
+    border: none;
+    font-size: 50px;
+    margin-left: 0px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 40px; 
+    height: 40px;
+}
+
+
+.back-button:hover {
+    background-color: #A13C64; 
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.profile-info {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px; 
+}
+
+.profile-image-container {
+    position: relative;
+}
+
+.profile-image-large {
+    width: 120px; 
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #a13c64; 
+}
+
+.edit-photo-button {
+    position: absolute;
+    top: 5px; 
+    right: 5px; 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+h2.profile-name {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.info-line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.info-line img {
+    width: 20px; 
+    margin-right: 8px;
+}
+
+.info-text {
+    width: 80%; 
+    text-align: left; 
+}
+
+.form-section {
+    background-color: white; 
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 60%; 
+    margin-left: 20px; 
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 20px; /* Spacing between columns */
+}
+
+.input-grupo {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-grupo label {
+    margin-bottom: 5px;
+}
+
+.input-grupo input,
+.input-grupo select,
+.input-grupo textarea {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-grupo textarea {
+    resize: vertical;
+    height: 60px; 
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+textarea,
+select {
+    resize: vertical;
+    min-height: 10px; /* Adjust as needed */
+}
+
+/* Button alignment */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.save-button{
+    background-color: #a13c64;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer; 
+}
+.save-button2{
+    background-color: #a13c64;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer; 
+}
+.edit-preferences-button,
+.edit-profile-button{
+    background-color: #a13c64;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer; 
+}
+.delete-account-button {
+    background-color: #a13c64;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer; 
+}
+
+.preferences-section {
+    margin-top: 20px;
+    background-color: white; 
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.preferences-grid {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+
+.preference-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: white; 
+    transition: background-color 0.3s;
+}
+.preference-button:hover {
+    background-color: #f0f0f0; 
+}
+
+.form-label{
+    color: #7d4c61;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font: 14px Poppins, sans-serif;
+}
+
+.form-input {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: rgba(205, 205, 205, 0.4);
+    font: 14px Poppins, sans-serif;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-input::placeholder {
+    font-size: 14px;
+    font: Poppins, sans-serif;
+}
+
+#nombre, #apellido ,#apellidos, #lada, #ladaPais, #phone, #email, #password, #fecha_nacimiento, #telefono, #confirm_password, #pais, 
+#genero{
+    font: 14px Poppins, sans-serif; 
+    color: #5f5f5f; 
+    background-color: #ffffff; 
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    border-radius: 6.5px;
+    padding: 10px 10px 10px;
+    width: 90%;
+}
+
+#biografia, #selectPais{
+    font: 14px Poppins, sans-serif; 
+    color: #5f5f5f; 
+    background-color: #ffffff; 
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    border-radius: 6.5px;
+    padding: 10px 10px 10px;
+    width: 95%;
+}
+
+.titulo {
+    font: 700 34px / 30px Montserrat, sans-serif;
+    color: #7D4C61;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .input-grid {
+        grid-template-columns: 1fr; /* Stack items in one column */
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.form-control, #ladaPais , #lada{
+    min-width: 100%; /* Asegura que ocupe todo el espacio disponible */
+    max-width: 100%; /* Evita el desbordamiento */
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.form-input, #ladaPais, #lada{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    font: 14px Poppins, sans-serif;
+}
+.modalA{
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contentA {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Open Sans', sans-serif;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.category h4, .subcategory label, .sub-subcategory label {
+    margin: 10px 0;
+}
+
+.category, .subcategory, .sub-subcategory {
+    margin-bottom: 8px;
+}
+
+
+.category h4 {
+    font-weight: bold;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    padding-right: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #383536;
+}
+
+.category-icon {
+    width: 20px;
+    margin-right: 8px;
+}
+
+/* Primer nivel de subcategoría */
+.subcategory {
+    padding-left: 20px;
+}
+
+.subcategory label {
+    display: block;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Segundo nivel de sub-subcategoría */
+.sub-subcategory {
+    padding-left: 40px;
+}
+
+.sub-subcategory label {
+    display: block;
+    font-weight: normal;
+    color: #777;
+}
+
+/* Ocultar subcategorías y sub-subcategorías */
+.hidden {
+    display: none;
+}
+
+.category h4 input[type="checkbox"] {
+    margin-left: 5px; /* Ajusta la cantidad de espacio a tu gusto */
+}

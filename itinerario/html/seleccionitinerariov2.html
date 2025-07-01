@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo 404</title>
+    <link rel="stylesheet" href="/ADS_Turismo404/navbar/css/navbar.css">
+    <link rel="stylesheet" href="/ADS_Turismo404/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./seleccionitinerario.css">
+    <link rel="icon" href="../../inimgs/pest.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlBfvcJxLHgYnFMJBbgLmdzIS_mI2QZZQ&libraries=places"></script>
+    
+    <link rel="stylesheet" href="../../css/error.css">
+    <link rel="stylesheet" href="../css/sel_itinerario_v2.css">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      (function(g) {
+          var h, a, k, p = "The Google Maps JavaScript API",
+              c = "google",
+              l = "importLibrary",
+              q = "__ib__",
+              m = document,
+              b = window;
+          b = b[c] || (b[c] = {});
+          var d = b.maps || (b.maps = {}),
+              r = new Set,
+              e = new URLSearchParams,
+              u = () => h || (h = new Promise(async (f, n) => {
+                  await (a = m.createElement("script"));
+                  e.set("libraries", [...r] + ""); // Aquí se incluyen las bibliotecas necesarias
+                  e.set("callback", c + ".maps." + q);
+                  for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                  a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+                  d[q] = f;
+                  a.onerror = () => h = n(Error(p + " could not load."));
+                  a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                  m.head.append(a)
+              }));
+          d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
+      })({
+          key: "AIzaSyBlBfvcJxLHgYnFMJBbgLmdzIS_mI2QZZQ", // Reemplaza por tu clave de API
+          libraries: "places",
+          v: "beta"
+      });
+    </script>
+</head>
+
+<body>
+<div id="header"></div>
+
+<main class="container-fluid mt-2">
+  <!-- Botón de regresar -->
+  <button class="back-link d-flex align-items-center text-decoration-none custom-back-button" tabindex="0">
+    <i class="fa-solid fa-arrow-left back-icon"></i>
+  </button>
+
+  <h2 class="mb-4 container">Selecciona tu itinerario</h2>
+  <section class="container">
+    <h3 class="text-center">Selecciona el día a editar</h3>
+    <div>
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <a class="dia text-center">
+              <i class="bi bi-calendar"></i>
+              <p>19/01/25</p>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="dia text-center">
+              <i class="bi bi-calendar"></i>
+              <p>20/01/25</p>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="dia text-center">
+              <i class="bi bi-calendar"></i>
+              <p>21/01/25</p>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="dia text-center">
+              <i class="bi bi-calendar"></i>
+              <p>22/01/25</p>
+            </a>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="container mt-5 mb-4">
+    <h3>Configura paso a paso tu viaje.</h3>
+    <div class="d-flex flex-wrap align-items-center mb-3 column-gap-2">
+      <button  class="btn btn-plan me-2 mb-2 tab-button-custom" data-tab="lugares" id="BtnSeccLugares">Lugares</button>
+      <button class="btn btn-plan me-2 mb-2 tab-button-custom" data-tab="transporte" id="BtnSeccTransporte">Transporte</button>
+      <button class="btn btn-plan me-2 mb-2 tab-button-custom" data-tab="comida" id="BtnSeccComida">Comida</button>
+    </div>
+  </section>
+
+  <div class="caso-lugares" style="display: none;">
+    <section class="container">
+      <h3>Selecciona una categoría y descubre los lugares por visitar.</h3>
+      <div class="d-flex flex-wrap align-items-center mb-3 column-gap-2">
+        <button  class="btn btn-categ me-2 mb-2 tab-button-custom" >Cultura</button>
+        <button class="btn btn-categ me-2 mb-2 tab-button-custom" >Entretenimiento</button>
+        <button class="btn btn-categ me-2 mb-2 tab-button-custom" >Compras</button>
+      </div>
+    </section>
+  
+    <section class="container cards-cont">
+      <div class="row row-gap-4">
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <!-- Checkbox para agregar al itinerario -->
+              <div class="card-footer">
+                  <label for="${cardId}" class="checkbox-label">
+                      <input type="checkbox" id="${cardId}" class="checkbox-itinerario">
+                      Seleccionar
+                  </label>
+              </div>
+              <div class="card-info">
+                  <p class="card-title">${nombre}</p>
+                  <div class="star-rating">
+                      ${[1, 2, 3, 4, 5].map(index => `
+                          <span class="star${index <= (valoracion || 0) ? ' selected' : ''}">★</span>
+                      `).join('')}
+                  </div>
+              </div>
+              <!-- Botón para mostrar más información -->
+              <div class="card-actions">
+                  <button class="btn-mas-info" data-id="${idLugar}" style="margin-top: 10px;">Ver más</button>
+              </div>
+              
+          </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <!-- Checkbox para agregar al itinerario -->
+              <div class="card-footer">
+                  <label for="${cardId}" class="checkbox-label">
+                      <input type="checkbox" id="${cardId}" class="checkbox-itinerario">
+                      Seleccionar
+                  </label>
+              </div>
+              <div class="card-info">
+                  <p class="card-title">${nombre}</p>
+                  <div class="star-rating">
+                      ${[1, 2, 3, 4, 5].map(index => `
+                          <span class="star${index <= (valoracion || 0) ? ' selected' : ''}">★</span>
+                      `).join('')}
+                  </div>
+              </div>
+              <!-- Botón para mostrar más información -->
+              <div class="card-actions">
+                  <button class="btn-mas-info" data-id="${idLugar}" style="margin-top: 10px;">Ver más</button>
+              </div>
+              
+          </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <!-- Checkbox para agregar al itinerario -->
+              <div class="card-footer">
+                  <label for="${cardId}" class="checkbox-label">
+                      <input type="checkbox" id="${cardId}" class="checkbox-itinerario">
+                      Seleccionar
+                  </label>
+              </div>
+              <div class="card-info">
+                  <p class="card-title">${nombre}</p>
+                  <div class="star-rating">
+                      ${[1, 2, 3, 4, 5].map(index => `
+                          <span class="star${index <= (valoracion || 0) ? ' selected' : ''}">★</span>
+                      `).join('')}
+                  </div>
+              </div>
+              <!-- Botón para mostrar más información -->
+              <div class="card-actions">
+                  <button class="btn-mas-info" data-id="${idLugar}" style="margin-top: 10px;">Ver más</button>
+              </div>
+              
+          </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <!-- Checkbox para agregar al itinerario -->
+              <div class="card-footer">
+                  <label for="${cardId}" class="checkbox-label">
+                      <input type="checkbox" id="${cardId}" class="checkbox-itinerario">
+                      Seleccionar
+                  </label>
+              </div>
+              <div class="card-info">
+                  <p class="card-title">${nombre}</p>
+                  <div class="star-rating">
+                      ${[1, 2, 3, 4, 5].map(index => `
+                          <span class="star${index <= (valoracion || 0) ? ' selected' : ''}">★</span>
+                      `).join('')}
+                  </div>
+              </div>
+              <!-- Botón para mostrar más información -->
+              <div class="card-actions">
+                  <button class="btn-mas-info" data-id="${idLugar}" style="margin-top: 10px;">Ver más</button>
+              </div>
+              
+          </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <!-- Checkbox para agregar al itinerario -->
+              <div class="card-footer">
+                  <label for="${cardId}" class="checkbox-label">
+                      <input type="checkbox" id="${cardId}" class="checkbox-itinerario">
+                      Seleccionar
+                  </label>
+              </div>
+              <div class="card-info">
+                  <p class="card-title">${nombre}</p>
+                  <div class="star-rating">
+                      ${[1, 2, 3, 4, 5].map(index => `
+                          <span class="star${index <= (valoracion || 0) ? ' selected' : ''}">★</span>
+                      `).join('')}
+                  </div>
+              </div>
+              <!-- Botón para mostrar más información -->
+              <div class="card-actions">
+                  <button class="btn-mas-info" data-id="${idLugar}" style="margin-top: 10px;">Ver más</button>
+              </div>
+              
+          </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <!-- Checkbox para agregar al itinerario -->
+              <div class="card-footer">
+                  <label for="${cardId}" class="checkbox-label">
+                      <input type="checkbox" id="${cardId}" class="checkbox-itinerario">
+                      Seleccionar
+                  </label>
+              </div>
+              <div class="card-info">
+                  <p class="card-title">${nombre}</p>
+                  <div class="star-rating">
+                      ${[1, 2, 3, 4, 5].map(index => `
+                          <span class="star${index <= (valoracion || 0) ? ' selected' : ''}">★</span>
+                      `).join('')}
+                  </div>
+              </div>
+              <!-- Botón para mostrar más información -->
+              <div class="card-actions">
+                  <button class="btn-mas-info" data-id="${idLugar}" style="margin-top: 10px;">Ver más</button>
+              </div>
+              
+          </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <!-- Checkbox para agregar al itinerario -->
+              <div class="card-footer">
+                  <label for="${cardId}" class="checkbox-label">
+                      <input type="checkbox" id="${cardId}" class="checkbox-itinerario">
+                      Seleccionar
+                  </label>
+              </div>
+              <div class="card-info">
+                  <p class="card-title">${nombre}</p>
+                  <div class="star-rating">
+                      ${[1, 2, 3, 4, 5].map(index => `
+                          <span class="star${index <= (valoracion || 0) ? ' selected' : ''}">★</span>
+                      `).join('')}
+                  </div>
+              </div>
+              <!-- Botón para mostrar más información -->
+              <div class="card-actions">
+                  <button class="btn-mas-info" data-id="${idLugar}" style="margin-top: 10px;">Ver más</button>
+              </div>
+              
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="container caso-transporte" style="display: none;">
+    <h3>Edita tu configuración de viaje.</h3>
+    <div class="cards-cont">
+
+    </div>
+  </div>
+
+  <div class="container caso-comida" style="display: none;">
+    <h3>Selecciona tus destinos gourmet.</h3>
+    <div class="cards-cont">
+
+    </div>
+  </div>
+
+  <section class="container d-flex justify-content-end mb-5 gap-4">
+    <button class="btn btn-save">Guardar día</button>
+    <button class="btn btn-end">Generar itinerario</button>
+  </section>
+</main> 
+
+
+<div id="footer"></div>
+
+<!-- Modal Edicion -->
+<div class="modal fade" id="EdicionModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="confirmationModalLabel">Edicion</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <div class="row p-4">
+          <div class="col-lg-8 d-lg-flex align-items-center modal-body" id="modalEdicionMessage">
+              
+          </div>
+          <div class="col-lg-4 ms-auto contPreguntaImg">
+              <!-- Foto de mascota error -->
+          </div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-guardarEdicion" data-bs-dismiss="modal" id="GuardarEdicion">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Exito -->
+<div class="modal fade" id="succesModal" tabindex="-1" aria-labelledby="succesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header colorprincipal">
+        <h1 class="modal-title fs-5" id="succesModalLabel">Edición realizada exitosamente</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-8 d-lg-flex align-items-center">
+              <div class="textError" id="modalMessage">
+
+              </div><!-- Mensaje de error irá aquí -->
+          </div>
+          <div class="col-lg-4 ms-auto contSuccesImg">
+              <!-- Foto de mascota error -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn_conf" class="btn btn-guardarEdicion" data-bs-dismiss="modal">Aceptar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Modal Error -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Upps! Parece que hubo un error</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-8 d-lg-flex align-items-center">
+                    <div class="textError" id="errorModalBody">
+  
+                    </div><!-- Mensaje de error irá aquí -->
+                </div>
+                <div class="col-lg-4 ms-auto contErrorImg">
+                    <!-- Foto de mascota error -->
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    
+    
+    <!-- Modal Informacion -->
+    <div class="modal" id="InfoModal" tabindex="-1" aria-labelledby="InfoModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="InfoModalLabel"></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+            <div class="row p-4">
+              <div class="col-lg-8 modal-body">
+                  <h6>Ubicación:<p id="Ubicacion"></p></h6>
+                  <h6>Descripción:<p id="Descripcion"></p></h6> 
+                  <h6>Categorías:<p id="Categorias"></p></h6> 
+                  <h6>Precio:<p id="Precio"></p></h6>
+              </div>
+              <img src="../../inimgs/petRuta.png" class="col-lg-4 h-50">
+            </div>
+          <div class="modal-footer">
+            <button type="button" id="buttonModal" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Ver más detalles</button>
+          </div>
+        </div>
+    </div>
+
+   
+  </div>
+   <!-- Modal Confirmacion -->
+   <div class="modal" id="ConfirmacionModal" tabindex="-1" aria-labelledby="ConfirmacionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">¿Estás seguro?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+          <div class="row p-4">
+            <div class="col-lg-8 modal-body " id="confirmacionMessage">
+                
+            </div>
+            <div class="col-lg-4 ms-auto contPreguntaImg">
+                <!-- Foto del lugar -->
+            </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-guardarEdicion" data-bs-dismiss="modal" id="Cancelar">Cancelar</button>
+          <button type="button" class="btn btn-guardarEdicion" data-bs-dismiss="modal" id="AceptarConf">Aceptar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+  <div class="modal fade" id="TazimModal" tabindex="-1" aria-labelledby="TazimModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ConfirmacionTazimModalLabel">¿Estás seguro?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="row">
+                  <div class="col-lg-8 d-lg-flex align-items-center">
+                      <div>
+                        ¿Estás seguro de que deseas eliminar esta tarjeta?
+                      </div>
+                  </div>
+                  <div class="col-lg-4 ms-auto contPreguntaImg">
+                    
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="AceptarTaz">Aceptar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="CancelarTaz">Cancelar</button>
+            </div>
+        </div>
+  </div>
+    -->
+
+<script src="../../js/jquery-3.7.1.min.js"></script>
+<script src="../../js/bootstrap.bundle.min.js"></script>
+<script src="../js/seleccionItinerario.js"></script>
+<script src="../../navbar/js/navbar.js"></script>
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    slidesPerView: 3,
+    spaceBetween: 50,
+    initialSlide: 0, 
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,
+    },
+  });
+  
+  document.querySelectorAll('.dia').forEach((dia) => {
+    dia.addEventListener('click', function (e) {
+      e.preventDefault(); // Previene el comportamiento por defecto del enlace
+  
+      // Elimina la clase "selected" de todos los elementos
+      document.querySelectorAll('.dia').forEach((item) => item.classList.remove('selected'));
+  
+      // Agrega la clase "selected" solo al elemento clickeado
+      this.classList.add('selected');
+    });
+  });
+  
+  document.querySelectorAll('.btn-plan').forEach((button) => {
+    button.addEventListener('click', function () {
+      // Quitar la clase "selected" de todos los botones
+      document.querySelectorAll('.btn-plan').forEach((btn) => btn.classList.remove('selected'));
+  
+      // Agregar la clase "selected" solo al botón clickeado
+      this.classList.add('selected');
+    });
+  });
+  document.querySelectorAll('.btn-categ').forEach((button) => {
+    button.addEventListener('click', function () {
+      // Quitar la clase "selected" de todos los botones
+      document.querySelectorAll('.btn-categ').forEach((btn) => btn.classList.remove('selected'));
+  
+      // Agregar la clase "selected" solo al botón clickeado
+      this.classList.add('selected');
+    });
+  });
+</script>
+<script>
+  // Función para mostrar la sección correspondiente
+  function mostrarSeccion(seccion) {
+      // Oculta todas las secciones
+      document.querySelector('.caso-lugares').style.display = 'none';
+      document.querySelector('.caso-transporte').style.display = 'none';
+      document.querySelector('.caso-comida').style.display = 'none';
+
+      // Muestra la sección correspondiente
+      document.querySelector(`.${seccion}`).style.display = 'block';
+  }
+
+  // Agrega los eventos a los botones
+  document.getElementById('BtnSeccLugares').addEventListener('click', function() {
+      mostrarSeccion('caso-lugares');
+  });
+
+  document.getElementById('BtnSeccTransporte').addEventListener('click', function() {
+      mostrarSeccion('caso-transporte');
+  });
+
+  document.getElementById('BtnSeccComida').addEventListener('click', function() {
+      mostrarSeccion('caso-comida');
+  });
+</script>
+
+</body>
+</html>

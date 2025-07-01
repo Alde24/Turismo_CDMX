@@ -1,0 +1,171 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+.contenedor {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.title-contenedor {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.notifications-panel {
+    background-color: #f5e6e6;
+    width: 1300px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.notifications-panel h2 {
+    font-size: 24px;
+    color: rgb(27, 27, 27);
+    margin-bottom: 20px;
+}
+
+.notification {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 100%;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.notification.read {
+    background-color: #e6e6e6; 
+}
+
+
+.notification:hover {
+    background-color: #e9e9e9;
+}
+
+.notification-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #b6b6b6;
+    margin-bottom: 5px;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgb(114, 36, 59);
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 30px;
+    left: -5px;
+}
+
+.notification.read .status-indicator {
+    background-color: rgb(184, 184, 184);
+}
+
+.notification-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.notification p {
+    font-size: 14px;
+    color: black;
+    margin: 0;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+.notification-time {
+    font-size: 12px;
+    color: gray;
+}
+
+#unread-count {
+    font-size: 0.9em; 
+    color: #3b3b3b; 
+    position: absolute; 
+    right: 20px;
+    top: 0;
+    margin-top: 8px; 
+}
+
+.back-link {
+    position: fixed; /* Fija el botón en la pantalla */
+    width: 50px;
+    height: 50px;
+    background-color: #A13C64;
+    border: none; /* Eliminamos el borde */
+    border-radius: 30px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    text-decoration: none;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    top: 80px; /* Ajusta la distancia desde la parte superior */
+    left: 30px; /* Ajusta la distancia desde el lado izquierdo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para resaltar */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efectos al pasar el cursor */
+}
+
+.back-link .back-icon {
+
+    width: 30px;
+    /* Ajusta el tamaño del icono */
+    height: 30px;
+    /* Ajusta el tamaño del icono */
+    margin-right: 8px;
+    /* Espacio entre el icono y el texto */
+}
+
+.back-link:hover {
+    opacity: 0.8;
+    /* Efecto al pasar el ratón sobre el botón */
+}
+
+.back-link:focus {
+    outline: none;
+    /* Elimina el contorno al hacer focus */
+}
+
+.back-link .text-dark {
+    color: #ffffff;
+    /* Color del texto */
+}
+
+.back-link:active {
+    opacity: 0.6;
+    /* Efecto al hacer clic en el botón */
+}

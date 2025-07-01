@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Itinerario - Turismo404</title>
+    <link
+      rel="stylesheet"
+      href="/ADS_Turismo404/itinerario/css/itinerario.css"
+    />
+    <link rel="stylesheet" href="/ADS_Turismo404/navbar/css/navbar.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="/ADS_Turismo404/inimgs/pest.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/ADS_Turismo404/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <main class="itinerario-container">
+      <div class="navegacion">
+        <a href="/ADS_Turismo404/index.php">
+          <img
+            src="/ADS_Turismo404/inimgs/salir.png"
+            class="exit-icon"
+            alt="exit"
+          />
+        </a>
+      </div>
+
+      <!-- Sección de actividades por día -->
+      <div id="itinerary" class="section">
+        <h1>Itinerario</h1>
+        <select id="day-select-Iti" onchange="showDay()">
+          <option value="day1">Día 1</option>
+          <option value="day2">Día 2</option>
+          <option value="day3">Día 3</option>
+          <option value="day4">Día 4</option>
+        </select>
+
+        <section id="day1" class="day-section">
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/viaje.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Viaje</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>$1,200MXN</p>
+              <span>4 horas</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/dia1.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Hospedaje</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>$400MXN</p>
+              <span>1 noche</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/dia3.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Comida</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>$300MXN</p>
+              <span>aprox.</span>
+            </div>
+          </div>
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/dia4.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Actividad</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>Gratis</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="day2" class="day-section hidden">
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/egg.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Desayuno</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>$200MXN</p>
+            </div>
+          </div>
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/dia2.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Actividad</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>$800MXN</p>
+            </div>
+          </div>
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/dia3.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Cena</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>$300MXN</p>
+              <span>aprox.</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="day3" class="day-section hidden">
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/egg.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Desayuno</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>$200MXN</p>
+            </div>
+          </div>
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/act2.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Actividad</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>Gratis</p>
+            </div>
+          </div>
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/dia3.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Comida</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>$300MXN</p>
+              <span>aprox.</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="day4" class="day-section hidden">
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/egg.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Desayuno</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>$200</p>
+            </div>
+          </div>
+          <div class="activity-card">
+            <img src="/ADS_Turismo404/itinerario/imgs/viaje.jpg" alt="viaje" />
+            <div class="activity-content">
+              <h3>Viaje</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad,
+                mollitia.
+              </p>
+            </div>
+            <div class="activity-price">
+              <p>$1,200</p>
+              <span>4 horas</span>
+            </div>
+          </div>
+        </section>
+      </div>
+      <br />
+      <br />
+    </main>
+
+    <div id="footer"></div>
+    <!-- Cargar la API de Google Maps -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlBfvcJxLHgYnFMJBbgLmdzIS_mI2QZZQ&callback=iniciarMapa&v=weekly&libraries=places"
+      async
+      defer
+    ></script>
+
+    <script src="/ADS_Turismo404/itinerario/js/itinerario.js"></script>
+    <script src="/ADS_Turismo404/navbar/js/navbar.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

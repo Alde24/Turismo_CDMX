@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo 404</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    
+    <!-- API de Google Maps -->
+    <script 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlBfvcJxLHgYnFMJBbgLmdzIS_mI2QZZQ&libraries=places">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script src="../../navbar/js/navbar.js"></script>
+    <script src="../../js/sweetAlert.min.js"></script>
+    <script src="../../editarperfil/js/editarperfil.js"></script>
+    <script type="module" src="../js/form.js"></script>
+    
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="icon" href="../../inimgs/pest.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/error.css">
+    <link rel="stylesheet" href="../../navbar/css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <main class="main">
+        <br>
+        <div class="form-content">
+            <div class="">
+                <div class="inicio">
+                    <h2>Responde las siguientes preguntas para poder personalizar tu viaje</h2>
+                    <a href="../../index.php">
+                        <img src="../../inimgs/salir.png" class="exit-icon" alt="exit">
+                    </a>
+                </div>
+                <p>Puedes guardar parcialmente tus respuestas con el botón correspondiente</p>
+            
+            </div>
+            <!-- Progreso de pasos -->
+            <div class="step-progress">
+                <span class="step active" onclick="goToStep(1)">1</span>
+                <span class="step" onclick="goToStep(2)">2</span>
+                <span class="step" onclick="goToStep(3)">3</span>
+                <span class="step" onclick="goToStep(4)">4</span>
+                <span class="step" onclick="goToStep(5)">5</span>
+                <!--span class="step" onclick="goToStep(6)">6</span-->
+            </div>
+            <!-- Formulario de viaje -->
+            <section class="step-section Paso1">
+                <h3>Viaje</h3>
+                <form id="presupuestoForm" autocomplete="off">
+                    <div class="form-group">
+                        <div class="fechax col-6 me-2">
+                            <label for="fecha-inicio">Fecha de inicio de viaje:</label>
+                            <input type="date" name="fecha-inicio" id="fecha-inicio" class="form-input form-control fecha" required>
+                            <small id="fechaError" class="form-label text-danger" style="display: none;"></small>
+                        </div>
+                        <div class="fechax col-6">
+                            <label for="fecha-fin">Fecha de fin de viaje:</label>
+                            <input type="date" name="fecha-fin" id="fecha-fin" class="form-input form-control fecha fin" required>
+                            <small id="fechaError" class="form-label text-danger" style="display: none;"></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="presupuesto">Presupuesto aproximado o total del viaje:</label>
+                        <div class="error">
+                            <input type="number" name="presupuesto" id="presupuesto" placeholder="Presupuesto en MXN">
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <label>¿Sabes a dónde ir?</label>
+                        <div id="UbiConocidaRadio">
+                            <input type="radio" id="Conocida" name="UbiConocida" value="Si">
+                            <label for="Conocida">Sí</label>
+                            <input type="radio" id="NoConocida" name="UbiConocida" value="No">
+                            <label for="NoConocida">No, sorpréndeme</label>
+                        </div>
+                    </div>
+
+                    <!-- Opciones adicionales -->
+                    <div id="opciones-adicionales" style="display: none;">
+                        <select id="day-select-Map">
+                            
+                        </select>
+                        <div class="form-group" id="BloqueOrigenes" style="display: none;">
+                            <label for="origen">Lugar de origen:</label>
+                            <img src="../../inimgs/ubicacion.png" class="ubicacion-icon" alt="ubicacion">
+                            <div class="error">
+                                <input type="text" id="origen" name="origen" placeholder="Punto de partida">
+                                <input type="hidden" id="idLugarOrigen" name="idOrigen" value="">
+                                <input type="hidden" id="latOrigen" name="latOrigen" value="">
+                                <input type="hidden" id="lngOrigen" name="lngOrigen" value="">
+                            </div>
+                        </div>
+                        <div class="form-group" id="BloqueDestinos" style="display: none;">
+                            <label for="destino">Puntos de interés:</label>
+                            <button id="btn-add" type="button" class="btn-add">+</button>
+                            <div id="destinos-container" class="ms-auto error"> </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="acompanantes">Número de acompañantes:</label>
+                        <div class="error">
+                            <input type="number" name="acompanantes" id="acompanantes" placeholder="No. de viajeros">
+                        </div>
+                    </div>
+                    <div class="navigation-buttons">
+                        <button class="btn-guardar" id="GuardarDestinos">Guardar respuestas</button>
+                    </div>
+
+                </form>
+            </section>
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const opcionesAdicionales = document.getElementById("opciones-adicionales");
+                    const radios = document.getElementsByName("UbiConocida");
+                    const origenInput = document.getElementById("origen");
+                    const destinoInput = document.getElementById("destino1");
+            
+                    radios.forEach(radio => {
+                        radio.addEventListener("change", function () {
+                            if (this.value === "Si") {
+                                opcionesAdicionales.style.display = "block";
+                                // Activar validación
+                                origenInput.setAttribute("required", "true");
+                                //destinoInput.setAttribute("required", "true");
+                            } else {
+                                opcionesAdicionales.style.display = "none";
+                                // Desactivar validación
+                                origenInput.removeAttribute("required");
+                                //destinoInput.removeAttribute("required");
+                            }
+                        });
+                    });
+                });
+            </script>
+            <!-- Formulario de Transporte -->
+            <section class="step-section Paso2 hidden">
+                <h3>Transporte</h3>
+                <form id="transporteForm" autocomplete="off">
+                    <div class="range-labels">
+                        <span class="min-label">1: Ninguna</span>
+                        <span class="max-label">10: Mucha</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="prioridad-transporte">¿Cuánta prioridad le das al transporte?<span id="valor-prioridad" class="valor">5</span></label>
+                        <input type="range" id="prioridad-transporte" name="prioridadTransporte" min="1" max="10" value="5">
+                        
+                    </div>
+                    <!--<div class="form-group">
+                        <label for="Pres-Transporte">Presupuesto aproximado para el transporte:</label>
+                        <div class="error">
+                            <input type="number" id="Pres-Transporte" name="presupuestoTransporte" placeholder="Presupuesto en MXN">
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <label>¿Qué tipo de transporte utilizarás?</label>
+                        <div id="tipoTransporteRadio">
+                            <input type="radio" id="publico" name="tipoTransporte" value="publico">
+                            <label for="publico">Transporte público</label>
+                            <input type="radio" id="privado" name="tipoTransporte" value="privado">
+                            <label for="privado">Transporte privado</label>
+                            <input type="radio" id="caminando" name="tipoTransporte" value="caminando">
+                            <label for="caminando">Caminando</label>
+                        </div>
+                    </div>
+
+                    <!--<div class="form-group">
+                        <label>¿Por cuál tipo de carretera deseas viajar?</label>
+                        <div id="tipoCarreteraRadio">
+                            <input type="radio" id="autopista" name="tipoCarretera" value="autopista">
+                            <label for="autopista">Autopista <small>(Pagarás una tarifa)</small></label>
+                            <input type="radio" id="libre" name="tipoCarretera" value="libre">
+                            <label for="libre">Libre <small>(Sin tarifa)</small></label>
+                        </div>
+                    </div>-->
+
+                   
+
+                    <div class="navigation-buttons">
+                        <button class="btn-guardar">Guardar respuestas</button>
+                    </div>
+                </form>
+            </section>
+
+            <!--Form de Hospedaje-->
+
+
+           <!--Form de Comida-->
+            <section class="step-section Paso3 hidden">
+                <h3>Comida</h3>
+                <form id="comidaForm" autocomplete="off">
+                    <div class="range-labels">
+                        <span class="min-label">1: Ninguna</span>
+                        <span class="max-label">10: Mucha</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="prioridadComida">¿Cuánta prioridad le das a la comida?<span id="valorPrioridadComida" class="valor">5</span></label>
+                        <input type="range" id="prioridad-comida" name="prioridadComida" min="1" max="10" value="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="DistanciaComida">¿Qué distancia prefieres para los establecimientos de comida?</label>
+                        <select name="distanciaComida" id="distanciaComida">
+                            <option value="0.9">Menos de 1 Km</option>
+                            <option value="2.9">Entre 1 y 3 Km</option>
+                            <option value="4.9">Entre 3 y 5 Km</option>
+                            <option value="5.0">Más de 5 Km</option>
+                        </select>
+                    </div> 
+                    <!--<div class="form-group">
+                        <label for="Pres-Comida">Presupuesto aproximado para la comida:</label>
+                        <div class="error">
+                            <input type="number" id="Pres-Comida" name="presupuestoComida" placeholder="Presupuesto en MXN">
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <label for="Establecimientos">¿En qué tipo de establecimiento te gustaría comer?</label>
+                        <div class="options" id="comidaCheckbox">
+                            <label><input type="checkbox" name="establecimientoComida[]" value="1">Cafeterías</label>
+                            <label><input type="checkbox" name="establecimientoComida[]" value="2">Comida rápida</label>
+                            <label><input type="checkbox" name="establecimientoComida[]" value="3">Comida mexicana</label>
+                            <label><input type="checkbox" name="establecimientoComida[]" value="4">Restaurante</label>
+                            <label><input type="checkbox" name="establecimientoComida[]" value="5">Restaurante vegano</label>
+                        </div>
+                    </div>
+                    <div class="navigation-buttons">
+                        <button class="btn-guardar">Guardar respuestas</button>
+                    </div>
+                </form>
+            </section>
+
+            <!--Form de Actividades-->
+            <section class="step-section Paso4 hidden">
+                <h3>Actividades</h3>
+                <form id="ActividadesForm" autocomplete="off">
+                    <div class="range-labels">
+                        <span class="min-label">1: Ninguna</span>
+                        <span class="max-label">10: Mucha</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="prioridad-act">¿Cuánta prioridad le das a las actividades?<span id="valor-prioridadActividades" class="valor">5</span></label>
+                        <input type="range" id="prioridad-act" name="prioridadActividades" min="1" max="10" value="5">
+                    </div>
+                    <!--<div class="form-group">
+                        <label for="Pres-Act">Presupuesto aproximado para las actividades:</label>
+                        <div class="error">
+                            <input type="number" id="Pres-Act" name="presupuestoActividades" placeholder="Presupuesto en MXN">
+                        </div>
+                    </div>-->
+
+                    <div class="form-group">
+                        <label for="CostoActividades">¿Qué rango de precios buscas para las actividades de tu itinerario?</label>
+                        <div class="options" id="CostoActCheckbox">
+                            <label><input type="checkbox" name="RangoCostoActividad[]" value="1">Gratuito</label>
+                            <label><input type="checkbox" name="RangoCostoActividad[]" value="2">Económico</label>
+                            <label><input type="checkbox" name="RangoCostoActividad[]" value="3">Moderado</label>
+                            <label><input type="checkbox" name="RangoCostoActividad[]" value="4">Costosos</label>
+                            <label><input type="checkbox" name="RangoCostoActividad[]" value="5">Muy costosos</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Cuánta distancia prefieres para ubicar las actividades de tu itinerario?</label>
+                        <div id="DistanciaActividadesRadio">
+                            <input type="radio" id="minima" name="DistanciaActividad" value="1">
+                            <label for="minima">Mínima</label>
+                            <input type="radio" id="media" name="DistanciaActividad" value="2">
+                            <label for="media">Media</label>
+                            <input type="radio" id="mucha" name="DistanciaActividad" value="3">
+                            <label for="mucha">Mucha</label>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>¿Qué aspecto te gustaría priorizar para las actividades?</label>
+                        <div id="PrioridadActividadesRadio">
+                            <input type="radio" id="popularidad" name="parametroActividades" value="1">
+                            <label for="popularidad">Popularidad</label>
+                            <input type="radio" id="distanciaact" name="parametroActividades" value="2">
+                            <label for="distanciaact">Distancia</label>
+                        </div>
+                    </div>                    
+                    <div class="navigation-buttons">
+                        <button class="btn-guardar">Guardar respuestas</button>
+                    </div>
+                </form>
+            </section>
+
+            <!--Sección de categorías-->
+            <section class="step-section Paso5 hidden">
+                <h3>Categorías</h3>
+                <label class="indicaciones">Estas son las categorías que tienes guardadas en tu perfil, ¿deseas modificar para este itinerario en particular? </label>
+                <section class="actividades" id="ContenedorActividades">
+                    
+                  
+                </section>
+                <button type="button" class="edit-preferences" id="editPreferencesButton">Editar preferencias</button>
+            </section>
+
+            <!-- Botones de navegación -->
+            <div class="navigation-buttons">
+                <button class="btn-prev hidden">Anterior</button>
+                <button  class="btn-next">Siguiente</button>
+                <button class="btn-save" id="btn-guardar">Guardar</button>
+                
+            </div>
+
+            <!--PREFERENCIAS CATEGORIA 6-->
+            <div id="preferencesModal" class="modalA">
+                <div class="modal-contentA">
+                    <img src="../../inimgs/salir.png" class="close-button">
+                    <div class="titulo">
+                        <b>Puedes editar tus preferencias para este viaje:</b><br>
+                    </div>
+                    <div class="scrollable-content">
+                        <div id="preferenciasActividades">
+                        </div>
+                    </div>
+                    <button class="save-button2" id="save-button2">Guardar Preferencias</button>
+                </div>
+            </div>
+            
+
+        </div>
+        <br>
+
+    </main>
+    
+    <div id="footer"></div>
+    
+    <!-- Div Modal / mensajes emergentes -->
+    <!-- Modal Error -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">¡Upps! Parece que hubo un error</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-8 d-lg-flex align-items-center">
+                    <div class="textError" id="errorModalBody">
+  
+                    </div><!-- Mensaje de error irá aquí -->
+                </div>
+                <div class="col-lg-4 ms-auto contErrorImg">
+                    <!-- Foto de mascota error -->
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Modal Confirmacion -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="confirmationModalLabel">¡Guardado Exitoso!</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-8 d-lg-flex align-items-center">
+                    <p>Respuestas parciales guardadas exitosamente.</p>
+                </div>
+                <div class="col-lg-4 ms-auto contSuccesImg">
+                    <!-- Foto de mascota error -->
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Modal de Advertencia -->
+    <div class="modal fade" id="WarningModal" tabindex="-1" aria-labelledby="WarnigModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="WarningModalLabel">Eliminación</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-8 d-lg-flex align-items-center">
+                    <p>¿Estás seguro que quieres eliminar esta categoría?</p>
+                </div>
+                <div class="col-lg-4 ms-auto contSuccesImg">
+                    <!-- Foto de mascota error -->
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="CancelarCategoria">Cancelar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="ElimnarCategoria">Elimnar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+    
+    <script src="/ADS_Turismo404/navbar/js/navbar.js"></script>   
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btnGuardar = document.getElementById("btn-guardar");
+            const checkboxesContainer = document.getElementById("preferenciasActividades");
+        
+            // Deshabilitar el botón "Guardar" al inicio
+            btnGuardar.disabled = true;
+        
+            // Función para verificar si hay algún checkbox seleccionado
+            function checkSelected() {
+                const checkboxes = checkboxesContainer.querySelectorAll('input[type="checkbox"]');
+                return Array.from(checkboxes).some(checkbox => checkbox.checked);
+            }
+        
+            // Evento para monitorear cambios en los checkboxes
+            checkboxesContainer.addEventListener("change", function () {
+                if (checkSelected()) {
+                    btnGuardar.disabled = false; // Habilitar botón "Guardar"
+                } else {
+                    btnGuardar.disabled = true; // Deshabilitar botón "Guardar"
+                }
+            });
+        });
+    </script>
+</body>
+</html>

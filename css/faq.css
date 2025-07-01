@@ -1,0 +1,198 @@
+h1{
+    font-weight: bold;
+    color: #A13C64;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+}
+
+h3{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+}
+p{
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+}
+label{
+    font-weight: bold;
+    color: #BD6085;
+    margin-bottom: 1.5rem;
+}
+textarea{
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(112,112,112,0.48);
+}
+
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.color{
+    background-color: rgba(161, 60, 100, 0.22);;
+}
+
+.btn-primary{
+    background-color: #A13C64;
+    border-color:#A13C64;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btn-secondary{
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btn-secondary:hover{
+    transform: scale(1.1);
+}
+
+.btn-primary:hover{
+    background-color:#A13C64;
+    transform: scale(1.1);
+    border-color:#A13C64;
+}
+
+.btn-primary:active {
+    --bs-btn-active-bg: #BD6085;
+    --bs-btn-active-border-color: #BD6085;
+}
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+  }
+  
+  .contSuccesImg{
+    height: 10rem;
+    background-image: url(../inimgs/pest.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .input {
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    height: 45px;
+    padding-left: 2.5rem;
+    box-shadow: 0 0 0 1.5px #bdbecb, 0 0 25px -17px #000;
+    border: 0;
+    border-radius: 12px;
+    background-color: #ffffff;
+    outline: none;
+    color: #bdbecb;
+    transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+    cursor: text;
+    z-index: 0;
+  }
+  
+  .input::placeholder {
+    color: #bdbecb;
+  }
+  
+  .input:hover {
+    box-shadow: 0 0 0 2.5px #bdbecb, 0px 0px 25px -15px #000;
+  }
+  
+  .input:active {
+    transform: scale(0.95);
+  }
+  
+  .input:focus {
+    box-shadow: 0 0 0 2.5px #A13C64;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 1.5rem;
+    fill: #bdbecb;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .sombra2{
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(112,112,112,0.48);
+  }
+
+  .fondo{
+    margin-top: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .iconos{
+    background-color: #A13C64;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0.5rem;
+  }
+
+  .cont-pregunta{
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(112,112,112,0.48);
+    border-radius: 12px;
+  }
+  .cont-pregunta:hover{
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(112,112,112,0.48);
+  }
+
+  /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  margin-bottom: 1rem;
+  
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 12rem;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+
+  
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.flip-card-front{
+  flex-direction: column;
+}
+
+/* Style the back side */
+.flip-card-back {
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  text-align: justify;
+  padding: 1rem;
+}

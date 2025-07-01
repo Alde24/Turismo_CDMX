@@ -1,0 +1,384 @@
+/* Stilos */
+h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: bold;
+}
+
+p {
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+h2{
+    color: #A13C64;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: bold;
+    font-weight: bold;
+}
+h3{
+    color: #000;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+}
+a, .btn{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+.btn-viaje{
+    background-color: #a13c64df;
+    color: white;
+    font-weight: bolder;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 12rem;
+}
+
+.btn-viaje:hover{
+    background-color: #a13c64;
+    color: white;
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 12px rgba(255, 255, 255, 0.556); 
+}
+
+.btn:active {
+    background-color: #A13C64 !important;
+    color: white !important;
+    border: none;
+}
+
+.btnColor{
+    background: linear-gradient(180deg, #D196A3 0%, #BD6085 100%);
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btnColor:hover{
+    color: #fff;
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.contenedor{
+    max-width: 90rem;
+    margin: 0 2rem auto 2rem;  
+    padding: 2rem;  
+}
+
+.pink {
+    border-radius: 50%;
+    color: #A13C64; 
+    border: none;
+    font-size: 50px;
+    margin-left: 0px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 40px; 
+    height: 40px;
+}
+
+.pink:hover {
+    background-color: #A13C64; 
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+}
+
+
+
+@media (min-width: 576px) {
+    .contenedor {
+        margin-right: 3rem;
+        margin-left: 3rem;
+    }
+}
+.recomendados{
+    margin-bottom: 5rem;
+}
+.imgviaje{
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    
+    height: 25rem;
+    
+    background-image: url(../img/cdmx.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenidoViajeNuevo{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.boton-historial{
+    color: #A13C64;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align:justify;
+    width: 23%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boton-historial:hover{
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.imgLugar{
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius:2rem;
+    height: 35rem;
+}
+
+.headInfo{
+    margin-bottom: 2rem
+}
+
+.textoInfo{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+.contImagen{
+    height: 100%;
+    margin-bottom: 1rem;
+}
+.card-img-top{
+    background-size: cover;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    height: 100%;
+}
+
+.colGap{
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+}
+/* Cambiar el color de los íconos de navegación de Swiper */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    color:#A13C64; /* Cambia el color al que prefieras */
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border:none;
+}
+  /* Estilos generales para el contenedor */
+.review-card {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+}
+
+/* Estilo para las estrellas */
+.stars {
+    color: #FFD700;
+    font-size: 20px;
+}
+
+/* Estilo para el nombre del hotel */
+.hotel-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* Estilo para el cuerpo de la reseña */
+.review-body {
+    color: #555;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* Contenedor de la información del revisor */
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    font-size: 12px;
+    color: #777;
+}
+
+/* Estilo para la imagen del revisor */
+.reviewer-info img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.t-align-center{
+    text-align: justify;
+}
+
+.btn-clima{
+    position: absolute;
+    width: 30%;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    width: 100%;
+    height: 254px;
+    background-color: #66D0FF;
+    padding: 20px;
+    border-radius: 1rem;
+    transition: all .3s;
+    border: 3px solid #66D0FF;
+    box-shadow: 0 0 10px white;
+  }
+  
+  .cloud {
+    width: 150px;
+    height: 70px;
+    background: #ECEFF1;
+    box-shadow: 10px 10px rgba(0,0,0,0.2);
+    border-radius: 70px;
+  }
+  
+  .cloud::after, .cloud::before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    background: inherit;
+    border-radius: inherit;
+  }
+  
+  .cloud::after {
+    width: 50px;
+    height: 50px;
+    top: -30px;
+    left: -55px;
+  }
+  
+  .cloud::before {
+    width: 70px;
+    height: 70px;
+    top: -20px;
+    left: 60px;
+  }
+  
+  .cloud {
+    animation: float 1.8s infinite alternate;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(15px);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .shadow {
+    width: 100%;
+    height: 24px;
+    background-color: rgba(0,0,0,0.2);
+    margin-top: 100px;
+    border-radius: 50%;
+    filter: blur(7px);
+    animation: sha 1.8s infinite alternate;
+  }
+  
+  @keyframes sha {
+    0% {
+      transform: scale(1,1);
+    }
+  
+    100% {
+      transform: scale(.85,.85);
+    }
+  }
+  
+  .card:hover {
+    width: 100%;
+    background-color: rgb(54, 129, 205);
+    height: 264px;
+    transform: scale(1.02);
+    padding: 20px;
+    border: none;
+  }
+
+  .color-2{
+    background-color: #9e9e9e;
+    border: none;
+  }
+  .color-2:hover{
+    background-color: #a13c64;
+    border: none;
+  }
+
+.instagram-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.instagram-post {
+    display: flex;
+    justify-content: center;
+}
+.c-negro{
+    color: #000;
+}

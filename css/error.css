@@ -1,0 +1,104 @@
+.contErrorImg{
+    height: 10rem;
+    background-image: url(../inimgs/petError.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.contSuccesImg{
+    height: 10rem;
+    background-image: url(../inimgs/pest.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.contPreguntaImg{
+    height: 10rem;
+    background-image: url(../inimgs/dudaPet.PNG);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.clima{
+    height: 10rem;
+    background-image: url(../inimgs/climaIndex.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.climaPet{
+    position: absolute;
+    height: 10rem;
+    object-fit: contain;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+@media (min-width: 576px) {
+    .imgPetError{
+        width: 100%;
+    }
+}
+.btn-primary{
+    background-color: #7e7e7e;
+    color: #fff;
+    border: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+.btn-primary:hover{
+    background-color: #A13C64;
+    color: #fff;
+}
+/* Cambiar el color al hacer click */
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #d086a4 !important; /* Forzar el color */
+  color: #fff;
+  box-shadow: none; /* Elimina el sombreado por defecto de Bootstrap */
+  border: none;     /* Evita bordes adicionales */
+}
+.btn-secondary{
+    background-color: #BD6085;
+    border: none;    
+}
+.btn-secondary:hover{
+    background-color: #A13C64;
+}
+.textError {
+    font-size: 1.5rem; /* Ajusta el tamaño de fuente */
+    color: #000; /* Opcional: Cambia el color si deseas */
+}
+
+.linkPersona{
+    text-decoration: none;
+    transition: transform 0.3s ease; /* Suaviza la transformación */
+}
+.linkPersona:hover{
+    transform: scale(1.1);
+}
+
+.persona {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-fp {
+    height: 10rem;
+    width: 10rem; /* Asegura un ancho igual a la altura */
+    background-color: #000;
+    border-radius: 50%;
+    overflow: hidden; /* Asegúrate de que los bordes redondeados oculten el contenido excedente */
+    display: flex; /* Alinea la imagen dentro del círculo */
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-fp img {
+    width: 100%; /* Ajusta el ancho al contenedor */
+    height: 100%; /* Ajusta la altura al contenedor */
+    object-fit: cover; /* Asegura que la imagen mantenga proporción y llene el círculo */
+}

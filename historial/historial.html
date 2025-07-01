@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Itinerarios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="/ADS_Turismo404/navbar/css/navbar.css">
+    <link rel="icon" href="../inimgs/pest.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stylehistorial.css">
+    
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <div class="nav-links">
+        <button class="back-link" onclick="goBack()" tabindex="0" aria-label="Regresar">
+            <i class="fa-solid fa-arrow-left" style="color: #ffffff; align-items: center;"></i>
+        </button>
+    </div>
+
+<div class="content-contenedor">
+    <div class="title-contenedor">
+        <h1>Historial</h1>
+        <h2>Historial de itinerarios que has creado</h2>
+    </div>
+
+    <div class="itineraries-grid">
+        <div class="itinerary-card" onclick="location.href='itinerantes.html'">
+            <img src="images/cdmx.webp" alt="Destino 1">
+            <div class="itinerary-info">
+                <h2>Ciudad de México</h2>
+                <p>Fecha: 23 Octubre 2024</p>
+                <p class="description">Explora la vibrante capital, llena de historia y cultura.</p>
+            </div>
+            <button class="delete-btn" onclick="deleteItinerary(event, this)">⨯</button>
+        </div>
+        <div class="itinerary-card" onclick="location.href='itinerantes.html'">
+            <img src="images/guadalajara.webp" alt="Destino 2">
+            <div class="itinerary-info">
+                <h2>Guadalajara</h2>
+                <p>Fecha: 15 Septiembre 2024</p>
+                <p class="description">Descubre el hogar del mariachi y el tequila en Jalisco.</p>
+            </div>
+            <button class="delete-btn" onclick="deleteItinerary(event, this)">⨯</button>
+        </div>
+        <div class="itinerary-card" onclick="location.href='itinerantes.html'">
+            <img src="images/mty.jpg" alt="Destino 3">
+            <div class="itinerary-info">
+                <h2>Monterrey</h2>
+                <p>Fecha: 01 Noviembre 2024</p>
+                <p class="description">Admira la majestuosidad de las montañas en el norte de México.</p>
+            </div>
+            <button class="delete-btn" onclick="deleteItinerary(event, this)">⨯</button>
+        </div>
+    </div>
+    <button class="back-btn" onclick="goBack()">Regresar</button>
+</div>
+
+<div id="footer"></div>
+
+<script src="script.js"></script>
+<script src="/ADS_Turismo404/navbar/js/navbar.js"></script>
+<script src="/js/script.js"></script>
+<script src="/ADS_Turismo404/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

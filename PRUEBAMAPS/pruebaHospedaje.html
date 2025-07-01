@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Búsqueda de Hospedajes por Radio</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlBfvcJxLHgYnFMJBbgLmdzIS_mI2QZZQ&libraries=places"></script>
+    <style>
+      #map {
+        height: 70vh;
+        width: 100%;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      #controls {
+        padding: 10px;
+        background: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      #controls input,
+      #controls button {
+        padding: 8px;
+      }
+      .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      #results {
+        max-height: 20vh;
+        overflow-y: auto;
+        margin-top: 10px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="controls">
+      <div>
+        <label for="radius-input">Radio (en metros):</label>
+        <input
+          type="number"
+          id="radius-input"
+          value="2000"
+          min="100"
+          step="100"
+          style="width: 100px"
+        />
+      </div>
+      <div class="checkbox-group">
+        <label
+          ><input
+            type="checkbox"
+            class="type-checkbox"
+            value="lodging"
+            checked
+          />
+          Cualquier alojamiento</label
+        >
+        <label
+          ><input type="checkbox" class="type-checkbox" value="hotel" />
+          Hotel</label
+        >
+        <label
+          ><input type="checkbox" class="type-checkbox" value="motel" />
+          Motel</label
+        >
+        <label
+          ><input type="checkbox" class="type-checkbox" value="hostel" />
+          Hostal</label
+        >
+        <label
+          ><input type="checkbox" class="type-checkbox" value="campground" />
+          Camping</label
+        >
+      </div>
+      <div>
+        <label for="rating-input">Prioridad:</label>
+        <input
+          type="number"
+          id="rating-input"
+          min="1"
+          max="10"
+          step="1"
+          value="10"
+          style="width: 50px"
+        />
+      </div>
+      <button id="clear-button">Limpiar</button>
+    </div>
+    <div id="map"></div>
+    <div id="results"></div>
+
+    <script>
+      let map;
+      let service;
+      let markers = [];
+      let circle = null;
+
+      function initMap() {
+        const cdmx = { lat: 19.432608, lng: -99.133209 };
+
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: cdmx,
+          zoom: 14,
+        });
+
+        service = new google.maps.places.PlacesService(map);
+
+        map.addListener("click", (event) => {
+          const radius = parseInt(
+            document.getElementById("radius-input").value
+          );
+          if (isNaN(radius) || radius <= 0) {
+            alert("Por favor, ingresa un radio válido en metros.");
+            return;
+          }
+          searchByRadius(event.latLng, radius);
+        });
+
+        document
+          .getElementById("clear-button")
+          .addEventListener("click", clearResults);
+      }
+
+      function searchByRadius(center, radius) {
+        clearResults();
+
+        circle = new google.maps.Circle({
+          center: center,
+          radius: radius,
+          map: map,
+          fillColor: "#blue",
+          fillOpacity: 0.3,
+          strokeColor: "#blue",
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+        });
+
+        map.fitBounds(circle.getBounds());
+
+        const selectedTypes = Array.from(
+          document.querySelectorAll(".type-checkbox:checked")
+        ).map((checkbox) => checkbox.value);
+
+        if (selectedTypes.length === 0) {
+          alert("Selecciona al menos un tipo de alojamiento.");
+          return;
+        }
+
+        const minRating = parseFloat(
+          document.getElementById("rating-input").value
+        ); // Calificación mínima seleccionada
+
+        selectedTypes.forEach((type) => {
+          const request = {
+            location: center,
+            radius: radius,
+            type: type,
+          };
+
+          service.nearbySearch(request, (results, status) => {
+            if (
+              status === google.maps.places.PlacesServiceStatus.OK &&
+              results.length > 0
+            ) {
+              displayResults(results, minRating);
+            }
+          });
+        });
+      }
+
+      function displayResults(places, minRating) {
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = "";
+
+        places.forEach((place) => {
+          // Solo muestra los lugares que tienen una calificación mayor o igual a la seleccionada
+          if (place.rating >= minRating / 2 - 0.5) {
+            const randomPrice =
+              Math.floor(Math.random() * (2000 - 500 + 1)) + 500;
+
+            const marker = new google.maps.Marker({
+              position: place.geometry.location,
+              map: map,
+              title: place.name,
+            });
+            markers.push(marker);
+
+            const adjustedPrice = calculatePriceBasedOnRating(
+              randomPrice,
+              place.rating
+            );
+
+            const placeInfo = document.createElement("div");
+            placeInfo.innerHTML = `
+                        <strong>${place.name}</strong><br>
+                        Dirección: ${place.vicinity || "N/A"}<br>
+                        Calificación: ${place.rating || "Sin calificación"} (${
+              place.user_ratings_total || 0
+            } reseñas)<br>
+                        Precio por noche: $${adjustedPrice} MXN
+                    `;
+            placeInfo.style.marginBottom = "10px";
+            resultsDiv.appendChild(placeInfo);
+          }
+        });
+      }
+
+      function calculatePriceBasedOnRating(basePrice, rating) {
+        if (!rating) return basePrice; // Si no hay calificación, devolvemos el precio base
+
+        // La calificación se ajusta de acuerdo al valor máximo (5 estrellas en Google Places)
+        const priceFactor = 1 + (rating - 3) * 0.2; // La calificación de 3 a 5 estrellas ajusta el precio entre un 0% y un 40%
+
+        const adjustedPrice = basePrice * priceFactor;
+        return Math.round(adjustedPrice);
+      }
+
+      function clearResults() {
+        markers.forEach((marker) => marker.setMap(null));
+        markers = [];
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = "";
+
+        if (circle) {
+          circle.setMap(null);
+          circle = null;
+        }
+      }
+
+      window.onload = initMap;
+    </script>
+  </body>
+</html>

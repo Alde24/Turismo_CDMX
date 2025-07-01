@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo404</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    
+    <link rel="icon" href="../../inimgs/pest.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="../../css/error.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/recuperar.css">
+</head>
+<body>
+    <header>
+        <!-- Aquí puedes agregar el encabezado de tu página, como el logo o la navegación principal -->
+    </header>
+
+    <main class="container-fluid">
+      <section class="container-fluid login-container d-flex flex-column flex-md-row p-0">
+        <div class="regresar">
+          <a href="login.php" class="regresarBtn">
+            <i class="bi bi-arrow-left-circle-fill"></i>
+          </a>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center welcome-column p-4">
+              <div class="text-center welcome-content">
+                  <div class="registrate-container d-flex justify-content-center align-items-center mb-3">
+                      <p class="registrate-password mb-0">¿No tienes cuenta?</p>
+                      <a href="../html/Signup.html" class="registrate-link ml-2">Regístrate</a>
+                  </div>
+                  <h2 class="welcome-message">¡Bienvenido de Nuevo, Viajero!</h2>
+                  <img src="../../inimgs/pest.png" alt="Welcome illustration" class="img-fluid welcome-image mt-3">
+              </div>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center p-0 m-0">
+            
+            <form id="recoveryForm" action="../php/recuperar_contrasena.php" method="POST" class="login-form w-100 h-100 " autocomplete="off">
+              
+              <div class="text-center iniciarseesion mb-5">Recupera tu contraseña</div>
+          
+              <div class="form-group w-100">
+                  <label for="email" class="form-label">Correo electrónico</label>
+                  <input type="email" id="email" name="email" class="form-control form-input w-100" placeholder="Ingresa tu correo aquí" required>
+                  <small id="emailError" class="form-label text-danger" style="display: none;"></small>
+              </div>  
+              <button type="submit" class="login-button btn btn-primary w-100">Recuperar contraseña</button>
+              
+          </form>
+          
+        </div>
+          
+      </section>
+  </main>
+
+    <footer>
+        <!-- Pie de página con información adicional, enlaces o derechos de autor -->
+    </footer>
+    <!-- Modal confirmacion-->
+    <div class="modal fade" id="succesModal" tabindex="-1" aria-labelledby="succesModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header colorprincipal">
+            <h1 class="modal-title fs-5" id="succesModalLabel">Sólo un paso más</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="d-lg-flex align-items-center">
+                <div id="succesModalBody">
+                  <div class="d-flex">
+                    <h6 id="modalMessage" class="mensajeModalConfirmacion">1<!-- Aquí se inserta el mensaje de confirmacion --></h6>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+            
+          </div>
+        </div>
+      </div>
+  </div>
+    <!-- Div Modal / mensajes de error -->
+    <!-- Modal -->
+  <!-- Modal Error -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Upps! Parece que hubo un error</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-8 d-lg-flex align-items-center">
+                <div class="textError" id="errorModalBody">
+
+                </div><!-- Mensaje de error irá aquí -->
+            </div>
+            <div class="col-lg-4 ms-auto contErrorImg">
+                <!-- Foto de mascota error -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor para el mensaje de carga -->
+  <div id="loadingMessage" class="d-none text-center position-fixed top-50 start-50 translate-middle">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Cargando...</span>
+    </div>
+    <p>Cargando...</p>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="../../js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../../error/error.js"></script>
+  <script src="../js/recuperar.js"></script>
+  <script src="../js/recuperarEmail.js"></script>
+</body>
+</html>

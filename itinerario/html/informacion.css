@@ -1,0 +1,621 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+  .weather-detail-link {
+    text-decoration: none; 
+    color: #000000;
+    font-weight: normal; 
+    margin-left: 10px; 
+  }
+  
+  .weather-detail-link:hover {
+    color: #A13C64; 
+    transition: color 0.3s ease;
+  }
+  
+  
+   .back-link {
+    width: 50px;
+    height: 50px;
+    background-color: #A13C64;
+    border-color: #ffffff;
+    border-radius: 30px;
+    padding: 10px;
+    cursor: pointer; 
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+    text-decoration: none;
+  }
+  
+  .back-link .back-icon {
+  
+    width: 20px; /* Ajusta el tamaño del icono */
+    height: 20px; /* Ajusta el tamaño del icono */
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+  }
+  
+  .back-link:hover {
+    opacity: 0.8; /* Efecto al pasar el ratón sobre el botón */
+  }
+  
+  .back-link:focus {
+    outline: none; /* Elimina el contorno al hacer focus */
+  }
+  
+  .back-link .text-dark {
+    color: #ffffff; /* Color del texto */
+  }
+  
+  .back-link:active {
+    opacity: 0.6; /* Efecto al hacer clic en el botón */
+  }
+  
+
+  
+.navigation-container {
+    align-self: end;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    align-items: start;
+    gap: 20px;
+    font-family: Inter, sans-serif;
+    color: #000;
+    font-weight: 400;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+   display: flex;
+    margin: 3% 3% 0px 3%;
+    font-size: 24px;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar enlaces en pantallas más pequeñas */
+}
+
+.itinerario-container{
+  display: block;
+}
+
+  .itinerary-wrapper {
+    display: flex;
+    gap: 12px;
+  }
+
+  .nav-links{
+    
+   
+    padding: 20px; /* Espaciado interno */
+    margin-bottom: 20px; /* Separación inferior */
+  }
+
+
+.row {
+  margin: 0;
+  gap: 0;
+  display: flex; /* Asegura que el aside y section estén alineados horizontalmente */
+  flex-wrap: nowrap; /* Evita que se envuelvan */
+}
+
+  .nav-icon {
+    aspect-ratio: 1.03;
+    object-fit: contain;
+    object-position: center;
+    width: 35px;
+  }
+
+  .destination-info {
+    align-self: start;
+    flex-basis: auto;
+    flex-grow: 1;
+  }
+
+  .back-link {
+    display: flex;
+    margin-top: 13px;
+    gap: 9px;
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  .back-icon {
+    aspect-ratio: 1.17;
+    object-fit: contain;
+    object-position: center;
+    width: 27px;
+  }
+
+
+  @media (max-width: 991px) {
+    .navigation-container {
+      max-width: 100%;
+      margin-right: 10px;
+    }
+    
+    .back-link {
+      white-space: initial;
+    }
+  }
+
+  .destination-container {
+    border-radius: 16px;
+    background-color: rgba(245, 220, 220, 1);
+    display: flex;
+    flex-grow: 1;
+    gap: 11px;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 30px 11px 30px 41px;
+  }
+  
+  .content-wrapper {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    align-items: start;
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+  
+  .status-badges {
+    
+    color: #000;
+    font: 700 12px Inter, sans-serif;
+  }
+  
+  .trip-badge {
+    margin-top: 10px;
+    color: #000;
+
+    font: 700 12px Inter, sans-serif;
+    border-radius: 30px;
+    background-color: rgba(209, 150, 163, 1);
+    padding: 15px 23px;
+  }
+  
+  .status-indicator {
+    border-radius: 30px;
+    background-color: rgba(209, 150, 163, 1);
+    display: flex;
+    gap: 12px;
+    padding: 15px 23px;
+  }
+  
+  .status-dot {
+    border-radius: 50%;
+    align-self: start;
+    width: 10px;
+    height: 10px;
+    margin-top: 0px;
+  }
+  
+  .status-dot-green {
+    background-color: rgba(111, 190, 66, 1);
+  }
+  
+  .status-dot-yellow {
+    background-color: rgba(222, 196, 91, 1);
+  }
+  
+  .info-container {
+    margin-left: -20px;
+    align-self: stretch;
+    margin-top: 29px;
+    padding: 20px;
+  }
+  
+  .info-grid {
+    gap: 20px;
+    display: flex;
+  }
+  
+  .image-column {
+    width: 35%;
+  }
+
+  .image-container {
+    width: 120%;
+    position: relative;
+    cursor: pointer;
+    text-align: center; /* Centra texto dentro del contenedor */
+  }
+
+ 
+
+  .event-date {
+    display: block; /* Asegura que el texto se comporte como un bloque */
+    text-align: center; /* Centra el texto */
+    margin: 0 auto; /* Asegura el centrado horizontal */
+    font-size: 13px;
+    font-weight: bold;
+    width: 100%;
+  }
+
+  .event-title1 {
+    display: block; /* Asegura que el texto se comporte como un bloque */
+    text-align: center; /* Centra el texto */
+    margin: 0 auto; /* Asegura el centrado horizontal */
+    font-size: 15px;
+    width: 200%;
+   
+  }
+
+
+  .destination-image {
+    
+    aspect-ratio: 1.74;
+    object-fit: contain;
+    object-position: center;
+    width: 116%;
+    border-radius: 16px;
+    flex-grow: 1;
+  }
+  
+  .text-column {
+    width: 65%;
+    margin-left: 20px;
+  }
+  
+  .info-card {
+    justify-content: center;
+    height: 100%;
+    border-radius: 16px;
+    background-color: #fff;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    font: 500 12px Poppins, sans-serif;
+    color: #000;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .letra {
+    font: 700 27.4px Poppins, sans-serif;
+  }
+  
+  .info-title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  .itinerary-details {
+    font-size: 20px;
+    font-weight: 400;
+    align-self: start;
+    margin-top: 19px;
+  }
+  
+  .destination-description {
+    width: 95%;
+    border-radius: 16px;
+    background-color: #fff;
+    align-self: stretch;
+    margin-top: 25px;
+    color: #000;
+    padding: 28px 15px 15px 28px;
+    font: 500 14px Poppins, sans-serif;
+  }
+  
+  .events-title {
+    color: #000;
+    margin-top: 35px;
+    font: 700 25px Poppins, sans-serif;
+  }
+
+  .back-link {
+    text-decoration: none; /* Quita la subrayado */
+    color: inherit; /* Usa el color actual del texto (heredado) */
+  }
+  
+  .back-link:hover {
+    color: #7a4a4c; /* Mantén el color sin cambios al pasar el mouse */
+    text-decoration: none; /* Asegúrate de que no se subraye */
+  }
+
+  .nav-links {
+    padding: 15px 0; /* Espaciado opcional para la barra */
+  }
+  
+  .nav-icon,
+  .back-icon {
+    height: 24px; /* Ajusta el tamaño del icono según tus necesidades */
+  }
+  
+  .back-link span {
+    font-size: 1rem; /* Ajusta el tamaño del texto en el enlace */
+  }
+
+   h3 {
+    
+   
+    color: #000;
+    margin-top: 15px;
+   
+    
+  }
+  
+
+  .image-container {
+    position: relative;
+    text-align: center;
+  }
+  
+  .events-grid {
+    margin-top: 20px;
+    width: 579px;
+    max-width: 100%;
+  }
+  
+  .events-row {
+    gap: 20px;
+    display: flex;
+  }
+  
+  .event-card {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    font: 400 15px Inter, sans-serif;
+  }
+  
+  .event-image {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+    width: 173px;
+    height: 164px;
+  }
+  
+  .event-title {
+    margin-top: 9px;
+    margin-left: 10px;
+  }
+  
+  .scroll-indicator {
+    border-radius: 16px;
+    background-color: rgba(150, 149, 149, 1);
+    width: 8px;
+    height: 501px;
+    margin: auto 0;
+  }
+  @media (max-width: 991px) {
+
+    body, html {
+      overflow-x: hidden;
+  }
+
+  .weather-title{
+    padding: 9px 300px 9px 9px;
+
+  }
+    .image-container{
+      width: 50%;
+    }
+
+   .itinerario-container{
+    margin-top: -20px;
+   }
+  
+   .event-title1{
+    margin-left: -3px;
+    text-align: start;
+    width: 50%;
+   }
+
+   .event-date{
+    margin-left: -2px;
+    width: 50%;
+    text-align: start;
+   }
+    .img-fluid{
+      margin-top: 10px;
+      width: 190%;
+      max-height: 90%;
+    }
+
+    .weather-detail-link{
+      margin-left: -80px; 
+    }
+
+    .destination-container {
+      margin-top: 21px;
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .content-wrapper {
+      max-width: 100%;
+    }
+    
+    .trip-badge {
+      padding: 20px 20px;
+    }
+    
+    .status-indicator {
+      padding: 20px 20px;
+    }
+    
+    .info-container {
+      max-width: 100%;
+    }
+    
+    .info-grid {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    
+    .image-column {
+      width: 100%;
+    }
+    
+    .destination-image {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+    
+    .text-column {
+      width: 100%;
+    }
+    
+    .info-card {
+      max-width: 170%;
+      margin-top: 21px;
+      padding: 0 20px 0px 20px;
+
+    }
+    
+    .letra {
+      font: 700 19.4px Poppins, sans-serif;
+    }
+    
+
+    .destination-description {
+      max-width: 100%;
+      padding-right: 20px;
+    }
+    
+    .events-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    
+    .event-card {
+      width: 100%;
+      margin-top: 27px;
+    }
+  }
+
+  @media (max-width: 768px) {
+
+    .weather-title{
+      padding: 9px 150px 9px 9px;
+  
+    }
+
+    .weather-container{
+      margin-top: 80px;
+      margin-bottom: 40px;
+    }
+    .info-card{
+      padding: 30px;
+    }
+
+    .weather-detail-link{
+      margin-left: -120px; 
+    }
+
+    .row {
+      flex-direction: column; /* Cambia la dirección a columna */
+    }
+    .col-md-6 {
+      width: 100%; /* Asegura que cada columna ocupe el ancho completo */
+    }
+  }
+  
+  .weather-container {
+    border-radius: 16px;
+    background: rgba(245, 220, 220, 1); /* Fondo claro */
+    width: 100%;
+    font-family: Inter, sans-serif;
+    color: rgba(0, 0, 0, 1);
+    margin: 0 auto;
+    padding: 26px 23px 100px; /* Espaciado interno */
+}
+
+/* Tarjeta del clima dentro del contenedor */
+.weather-card {
+  background-image: url('https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/07/13162921/ciudad-de-mexico-gente-2.jpg'); /* Fondo con imagen */
+  background-size: cover; /* Cubrir el espacio */
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 250px; /* Aumentar la altura de la tarjeta */
+  border-radius: 12px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centra todo el contenido en la tarjeta */
+  gap: 10px; /* Espaciado entre los elementos */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+  color: white; /* Texto blanco */
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Capa de fondo oscuro */
+.weather-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
+  border-radius: 12px; /* Mantener bordes redondeados */
+  z-index: 1; /* Poner la capa de color detrás del contenido */
+}
+
+/* Estilo de la imagen del clima */
+.weather-card img {
+  width: 60px; /* Aumentar tamaño del icono */
+  height: 60px;
+  object-fit: contain; /* Asegura que las imágenes no se distorsionen */
+  z-index: 2; /* Coloca la imagen encima del fondo */
+}
+
+/* Estilo del texto */
+.weather-card p {
+  margin: 0;
+  font-size: 16px; /* Aumentar tamaño de texto */
+  font-weight: bold;
+  z-index: 2; /* Coloca el texto encima del fondo */
+}
+
+/* Estilo de la temperatura */
+.weather-card .temperature {
+  font-size: 24px; /* Aumentar tamaño de la temperatura */
+  font-weight: bold;
+  z-index: 2; /* Coloca la temperatura encima del fondo */
+}
+
+.weather-title {
+  font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+  font-weight: bold; /* Negritas */
+  color: black; /* Color negro */
+  text-align: left; /* Alineado a la izquierda */
+  margin-bottom: 0; /* Eliminar margen inferior */
+  font-size:large;
+}
+
+/* Estilo para el enlace de detalles */
+.weather-detail-link {
+  font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+  font-weight: bold; /* Negritas */
+  color: #a13c64; /* Color #a13c64 */
+  text-align: right; /* Alineado a la derecha */
+  text-decoration: none; /* Eliminar subrayado */
+}
+
+.weather-detail-link:hover {
+  text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+
+
+
+

@@ -1,0 +1,999 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#contenedorLugares{
+  width: 100%;
+}
+
+
+
+h2{
+    font: 700 25px/25px Montserrat, sans-serif;
+    color: #000000;
+}
+
+body::after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.back-link {
+  width: 50px;
+  height: 50px;
+  background-color: #A13C64;
+  border-color: #ffffff;
+  color: #ffffff;
+  border-radius: 30px;
+  padding: 10px;
+  cursor: pointer; 
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  text-decoration: none;
+  margin-bottom: 3%;
+}
+
+.back-icon{
+  color: #ffffff !important;
+}
+.custom-back-button .back-icon {
+  width: 20px; /* Ajusta el tamaño del icono */
+  height: 20px; /* Ajusta el tamaño del icono */
+  color: #ffffff;
+  
+}
+
+/* Asegura que no interfiera con otros botones */
+.custom-back-button .back-link .back-icon {
+  width: auto;
+  height: auto;
+  margin-right: 0;
+}
+
+.custom-back-button .back-link:hover {
+  opacity: 0.8; /* Efecto al pasar el ratón sobre el botón */
+}
+
+.custom-back-button .back-link:focus {
+  outline: none; /* Elimina el contorno al hacer focus */
+}
+
+
+
+.custom-back-button .back-link:active {
+  opacity: 0.6; /* Efecto al hacer clic en el botón */
+}
+
+
+.eye-icon {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.664); /* Fondo negro */
+  color: white; /* Color del ícono */
+  border-radius: 50%; /* Hace el fondo circular */
+  padding: 9px; /* Espacio dentro del círculo */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; /* Ajusta el ancho del círculo */
+  height: 30px; /* Ajusta la altura del círculo */
+  font-size: 17px; /* Ajusta el tamaño del ícono */
+  margin-left: 9px; /* Separación entre el texto y el ícono */
+  vertical-align:bottom; /* Alineación con el texto */
+}
+
+
+
+.card-container .card {
+  width: 24%;
+  margin-right: 1%;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.card-container .card:nth-child(4n) {
+  margin-right: 0;
+}
+
+/* Estilo de checkbox oculto inicialmente */
+.card-checkbox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+  width: 20px; /* Anchura del checkbox */
+  height: 20px; /* Altura del checkbox */
+  transform: scale(1.5); /* Escala para agrandar */
+  cursor: pointer;
+  appearance: none; /* Elimina el estilo predeterminado */
+  background-color: #ffffff; /* Color de fondo */
+  border: 2px solid #7d4c619c; /* Borde del checkbox */
+  border-radius: 50px; /* Bordes redondeados */
+}
+
+.card-checkbox:checked::before {
+  content: 'x'; /* Marca de verificación */
+  font: 500 12px 'Poppins', sans-serif;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-checkbox:checked {
+  background-color: #7d4c619c;
+  border: 2px solid #7d4c6100;
+}
+
+/* Muestra el checkbox al pasar el mouse */
+.card:hover .card-checkbox {
+  display: block;
+}
+
+/* Cambia el color de la tarjeta al seleccionar el checkbox */
+.card-checkbox:checked + img + .card-body,
+.card-checkbox:checked ~ .card-body {
+  background-color: #7D4C61;
+  color: white;
+}
+
+.card-checkbox:checked + .card-content .card-body {
+  background-color: #7D4C61; /* Fondo de la tarjeta al seleccionarse */
+}
+
+.card-checkbox:checked + .card-content .star-icon,
+.card-checkbox:checked + .card-content .card-text,
+.card-checkbox:checked + .card-content .title-text{
+  color: #fff; /* Cambia a blanco las estrellas y el precio al seleccionar */
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 100vh; /* Define la altura máxima del contenedor */
+  overflow-y: auto; /* Habilita el scroll vertical */
+}
+
+.card-container .card {
+  width: 24%; /* Ocupa aproximadamente un cuarto del ancho del contenedor */
+  margin-right: 1%;
+  margin-bottom: 1rem;
+}
+
+.card-container .card:nth-child(4n) {
+  margin-right: 0; /* Quita el margen derecho a cada cuarta tarjeta */
+}
+
+
+.itinerary-selection {
+  background-color: rgba(241, 241, 241, 0.945);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: start;
+}
+
+
+
+.action-icon-1 {
+  aspect-ratio: 4.08;
+  object-fit: contain;
+  object-position: center;
+  width: fit-content;
+  border-radius: 0;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.action-icon-2 {
+  aspect-ratio: 1.16;
+  object-fit: contain;
+  object-position: center;
+  width: 73px;
+  margin: auto 0;
+}
+
+.main-content {
+  display: flex;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  margin: 0;
+
+  padding: 21px 0 354px 31px;
+}
+
+.itinerary-selection-container {
+  display: flex;
+  margin-top: 21px;
+  width: 100%;
+  max-width: 1047px;
+  flex-direction: column;
+  font-family: Inter, sans-serif;
+  color: #000;
+  font-weight: 400;
+}
+
+.itinerary-title {
+  align-self: start;
+  font: 500 32px Poppins, sans-serif;
+}
+
+.category-selection {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  font-size: 16px;
+  flex-wrap: wrap;
+}
+
+.category-list {
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-basis: auto;
+}
+
+.category-item {
+  border-radius: 25px;
+  padding: 11px 28px;
+}
+
+.category-item-active {
+  background-color: #7a4a4c;
+  color: #fff;
+}
+
+.category-item-inactive {
+  background-color: #d9d9d9;
+  color: #000;
+}
+
+.category-add {
+  border-radius: 25px;
+  background-color: #d9d9d9;
+  align-self: start;
+  display: flex;
+  width: 67px;
+  height: 40px;
+}
+
+.remove-category {
+  border-radius: 25px;
+  background-color: #d33131;
+  align-self: end;
+  margin-top: 24px;
+  font-size: 20px;
+  color: #fff;
+  padding: 13px 18px;
+}
+
+
+
+
+.card1 {
+  
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Adjusts content spacing */
+  
+}
+
+
+
+
+
+.parteuno{
+  padding: 2% 10%;
+  margin: 0px;
+}
+
+
+
+/* Remove unwanted top and bottom margins around cards in proposals */
+.card.mb-3 {
+  margin-bottom: 15px; /* Adjust if you want less or more space */
+}
+.mt-4 {
+
+  max-height: 64vh; /* Set this based on the viewport height you want to use */
+  overflow-y: auto; /* Enable vertical scrollbar */
+  padding-right: 10px; /* Add padding to prevent content hiding behind the scrollbar */
+}
+
+/* Optional: Style the scrollbar for a cleaner look (works in WebKit browsers) */
+.mt-4::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.mt-4::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+.mt-4::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded edges for the scrollbar thumb */
+}
+
+.mt-4::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color when hovered */
+}
+
+
+
+
+p{
+  color: #000000; /* Color blanco para el texto */
+  font: 200 14px 'Poppins', sans-serif
+}
+
+/* Estilo general para el contenedor de progreso */
+
+.bi-calendar-event{
+  color:#7D4C61;
+  font-size: 35px;
+}
+
+
+
+.calendario-botones {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendario-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 21px 0;
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
+}
+
+.slide-top, .slide-bottom {
+  position: absolute;
+  width: 16%;
+  border-radius: 50%;
+  padding: 10px;
+  border: none;
+  background: linear-gradient(90deg, #7A4A4C, #A13C64);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.slide-top {
+  top: -30px; /* Moves button to the top */
+  text-align: center;
+}
+
+.slide-bottom {
+  bottom: -30px; /* Moves button to the bottom */
+  text-align: center;
+}
+
+.slide-top:hover, .slide-bottom:hover {
+  color:#e2b0c6;
+}
+
+.diascompletados {
+  text-align: center;
+}
+
+.botones {
+  overflow: hidden; /* Prevent horizontal overflow */
+  width: 70%; /* Ensure full width of the container */
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.buttons-wrapper {
+  display: flex;
+  gap: 10px;
+  padding: 0 20px;
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.btn-danger{
+  border-radius:  999px; 
+  font: 500 14px 'Poppins', sans-serif;
+  align-items: right;
+}
+
+.btn-secondary, .tab-button-custom{
+  color: #ffffff;
+
+  border-radius:  999px; 
+  border-width: 1.5px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font: 500 14px 'Poppins', sans-serif;
+}
+
+button.btn-secondary.tab-button-custom{
+  background-color: #A13C64;
+  border-color: #A13C64;
+  border-radius:  999px; 
+  border: 2px solid transparent;
+  padding: 10px 20px;
+  font: 500 14px 'Poppins', sans-serif;
+}
+
+
+button.btn-secondary.tab-button-custom:hover {
+  background-color: #ffffff;
+  border-width: 1.5px;
+  border-color: #7A4A4C;
+  border-radius:  999px; 
+  color: #7A4A4C;
+}
+
+
+
+.btn-info{
+  align-items: center;
+  justify-content: center;
+  background-color: #7A4A4C;
+  border-color: #7A4A4C;
+  color: #ffffff;
+  border-radius:  999px; 
+  padding: 10px 20px;
+  font: 500 14px 'Poppins', sans-serif;
+}
+
+.btn-info:hover{
+  background-color: #ffffff;
+  border-color: #7A4A4C;
+  color: #7A4A4C;
+  transition: all 0.3s ease;
+  transform: scale(1.05);
+}
+
+.generate-icon:hover{
+  background-color: #916868;
+  border-color: #916868;
+  color: #7A4A4C;
+}
+
+.slide-left, .slide-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Adjust width for better alignment */
+  height: 40px; /* Adjust height for better alignment */
+  border-radius: 50%; /* Circular buttons */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, #7A4A4C, #A13C64);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.slide-left {
+  left: 10px; /* Slightly adjust to make space */
+}
+
+.slide-right {
+  right: 10px; /* Slightly adjust to make space */
+}
+
+.slide-left:hover, .slide-right:hover {
+  color: #d0b0c1;
+}
+
+/* Add this for the slide functionality */
+.botones .d-flex {
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide-left {
+  z-index: 10; /* Ensure it's on top */
+}
+
+.slide-right {
+  z-index: 10; /* Ensure it's on top */
+}
+
+.btn-warning{
+  font: 500 20px Poppins, sans-serif;
+  background-color: #c8c8c8;
+  border-color: #c8c8c8;
+  color:#000
+}
+
+.btn-warning:hover{
+  font: 500 20px Poppins, sans-serif;
+  background-color: #7A4A4C;
+  border-color: #c8c8c800;
+  color:#ffffff
+}
+
+.btn-warning:active{
+  background-color: #7A4A4C;
+}
+
+.rating .bi-star-fill,
+.rating .bi-star-half {
+  color: #000000; /* Negro */
+}
+
+
+.btn-success{
+  background-color: #7a304e;
+  color: white;
+  border-radius: 999px;
+  border-color: #00000000;
+  font-weight: bold;
+}
+
+.btn-success:hover{
+  border-color: #00000000;
+  transition: all 0.3s ease;
+  transform: scale(1.05);
+  background-color: #873d5a;
+}
+
+
+.aside-responsive {
+  flex: 1;
+  display: block;
+  position: relative; /* Flujo natural del documento */
+  height: auto; /* Ajusta la altura según el contenido */
+  min-height: 100vh; /* Asegura que cubra toda la ventana si hay poco contenido */
+  padding: 20px; /* Espaciado interno */
+  background-color: #f9f9f9; /* Color de fondo */
+}
+
+.boton-dia {
+  display: flex;  /* Habilita Flexbox */
+  justify-content: center;  /* Centra horizontalmente */
+  align-items: center;  /* Centra verticalmente */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+
+
+  /* Contenedor de tabs: ajusta a 2 columnas */
+  #tab-content {
+    margin-bottom: 22px;
+    grid-template-columns: 2fr !important;
+  }
+
+  /* Parte uno */
+  .parteuno {
+    margin-top: 10px;
+    width: 100%; /* Ajusta el ancho al 100% */
+   
+  }
+
+ 
+
+  /* Contenido del calendario */
+  .calendario-content {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: column; /* Vertical en pantallas pequeñas */
+  }
+
+ 
+
+  /* Oculta botones deslizantes */
+  .slide-left, 
+  .slide-right {
+    display: none;
+  }
+
+  .slide-top, 
+  .slide-bottom {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 12%;
+  }
+
+  /* Botones generales */
+  .botones .d-flex {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .itinerario-container .d-flex {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .itinerario-container .btn {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Tarjetas */
+  .card-container .card {
+    width: 100%; /* Cada tarjeta ocupa el 100% en pantallas pequeñas */
+    margin: 0 0 10px 0;
+  }
+
+  /* Ajustes del cuerpo de las tarjetas */
+  .card-body {
+    margin-left: 70px;
+    margin-bottom: 6%;
+  }
+
+  /* Botones */
+  .btn-success {
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  /* Ajusta el aside para evitar problemas */
+ 
+}
+
+
+
+/* Responsive - Pantallas medianas */
+@media (min-width: 769px) and (max-width: 992px) {
+h5{
+  font-size: 1rem;
+}
+ 
+
+  #tab-content {
+    grid-template-columns: 2fr !important;
+  }
+
+  #tab-content, #contenedorLugares {
+    width: 100%;
+    height: 18rem;
+    overflow-y: scroll;
+}
+
+  .slide-top, .slide-bottom {
+    width: 26%;
+  }
+
+  .card-body{
+     margin-left: -50px;
+  }
+  
+  .parteuno{
+    margin-top: 10px;
+  }
+   .card-container .card {
+    width: 48%; /* Aproximadamente la mitad del ancho en pantallas pequeñas */
+    margin-right: 2%;
+  }
+  .card-container .card:nth-child(2n) {
+    margin-right: 0; /* Sin margen derecho en cada segunda tarjeta */
+  }
+
+  /* Ajustes para el aside */
+  
+}
+
+
+
+/*cards lugares*/
+.category-pill {
+  background-color: #873d5a;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 0.5rem;
+}
+
+.category-pill:hover {
+  background-color: #7D4C61;
+}
+
+
+/* Cards de Lugares */
+.card {
+  flex: 1 1 calc(20% - 15px); /* Ajuste dinámico para 5 tarjetas por fila */
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+  height: 15.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.card.selected {
+  background-color: #d27399; /* Color de fondo para la tarjeta seleccionada */
+  color: white; /* Cambia el color del texto */
+}
+
+.card img {
+  width: 100%;
+  max-height: 5rem;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin: 0;
+  text-align: center;
+}
+
+.card-actions{
+  text-align: center;
+  margin-top: 0rem;
+}
+
+.card-location {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.6rem;
+  color: #000000;
+  margin: 5px 0;
+}
+
+/* Estrellas */
+.star-rating {
+  justify-content: center;
+}
+
+.star-rating .star {
+  font-size: 1.2rem;
+  color: #ccc; /* Color gris para estrellas no seleccionadas */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.star-rating .star.selected {
+  color: #ffc107; /* Color amarillo para estrellas seleccionadas */
+}
+
+.star-rating .star:hover {
+  color: #ffda44; /* Color amarillo más claro al pasar el cursor */
+}
+
+/* Contenedor */
+#tab-content {
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 15px; 
+  height: 30rem;
+  overflow-y: scroll;
+}
+
+.bar.container::-webkit-scrollbar {
+  width: 10px; /* Ancho del scrollbar */
+}
+
+.bar.container::-webkit-scrollbar-thumb {
+  background-color: #a13c64dd; /* Color de la barra */
+  border-radius: 50px; /* Bordes redondeados */
+}
+
+.bar.container::-webkit-scrollbar-thumb:hover {
+  background-color: #7a304e; /* Color al pasar el cursor */
+}
+
+
+
+.bar.container {
+  border: 0.5px solid #e3e3e3; /* Borde */
+  padding: 2rem; /* Relleno */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Compatibilidad con WebKit */
+}
+
+.bar.container.slider-item:hover {
+  -webkit-transform: scale(1.1); /* Ampliar al pasar el cursor */
+  transform: scale(1.1); /* Compatibilidad con otros navegadores */
+}
+
+
+.btn-mas-info{
+  color: white;
+  background-color: #A13C64;
+  border-radius: 1rem;
+  padding: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-mas-info:hover{
+  color: #A13C64;
+  background-color: white;
+  transform: translateY(-3px); 
+}
+
+.modal-title{
+  color: #A13C64;
+  font-weight: bolder;
+}
+
+.modal-body h6{
+  color:#7a304e;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.modal-body p{
+  color:rgb(99, 99, 99);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.instrucciones p{
+  color: gray;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card-footer{
+  background-color: #a13c64dd;
+  height: 3rem;
+}
+
+.card-footer input[type="checkbox"] {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.5rem;
+  border: 0.2rem solid #ccc;
+  background: #fff;
+  appearance: none;
+  cursor: pointer;
+}
+
+.card-footer input[type="checkbox"]:checked {
+  border-color: #A13C64;
+
+}
+
+.card-footer input[type="checkbox"]:checked::after {
+  content: "✔";
+  color: #A13C64; 
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: absolute;
+  top: 2rem;
+}
+.checkbox-label {
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Poppins',sans-serif;
+  font-size: 0.8rem;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  gap: 0.5rem;
+}
+.transporte-card{
+  all: unset; /* Elimina todas las propiedades heredadas */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.editar-btn{
+  background-color: #A13C64;
+  color: #fff;
+  border-radius: 1rem;
+  margin: 0.5rem 0 1rem 0;
+}
+.editar-btn:hover{
+  background-color: #ffffff;
+  border-color: #7A4A4C;
+  color: #7A4A4C;
+  transition: all 0.3s ease;
+  transform: scale(1.05);
+}
+#img-tipo-transporte{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#img-tipo-transporte > i{
+  font-size: 10rem;
+  font-weight: 100;
+}
+.transporte-card-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-guardarEdicion{
+  background-color: #BD6085;
+  border: none;  
+  color: #fff;
+}
+.btn-guardarEdicion:hover{
+  background-color: #A13C64;
+  color: #fff;
+}
+.contPreguntaImg{
+  height: 10rem;
+  background-image: url(../../inimgs/dudaPet.PNG);
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.radio-input{
+  accent-color: #A13C64;
+}
+.color-range {
+  -webkit-appearance: none; /* Elimina el estilo predeterminado en Chrome y Safari */
+  width: 85%;
+  height: 10px; /* Altura de la pista */
+  background-color: #d0b0c1; /* Color de fondo de la pista */
+  border-radius: 5px;
+  outline: none;
+}
+/* Cambiar el color de la pista (track) para navegadores WebKit (Chrome, Safari) */
+.color-range::-webkit-slider-runnable-track {
+  background-color: #d0b0c1; /* Color de la pista */
+  height: 10px;
+  border-radius: 5px;
+}
+/* Cambiar el color del thumb (control deslizante) para navegadores WebKit */
+.color-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #BD6085; /* Color del thumb */
+  border-radius: 50%; /* Forma circular */
+  cursor: pointer;
+  margin-top: -5px; /* Alinear el thumb con la pista */
+}
+/* Cambiar el color de la pista (track) para Firefox */
+.color-range::-moz-range-track {
+  background-color: #d0b0c1; /* Color de la pista */
+  height: 10px;
+  border-radius: 5px;
+}
+
+/* Cambiar el color del thumb para Firefox */
+.color-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #BD6085; /* Color del thumb */
+  border-radius: 50%;
+  cursor: pointer;
+}

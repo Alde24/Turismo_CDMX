@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo404</title>
+    <link rel="stylesheet" href="../css/editarPerfil.css">
+    <link rel="icon" href="../../inimgs/pest.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/editarperfil.js"></script>
+</head>
+
+<body>
+    <header>
+        
+    </header>
+    
+
+
+    <div class="container">
+        <div class="pink-background">
+            <a class="back-button" class="button" href="../../index.php">←</a>
+        </div>
+
+        <div class="edit-profile">
+            <div class="profile-info">
+                <div class="profile-image-container">
+                    <img src="../images/user.png" alt="Usuario" class="profile-image-large">
+                    <button class="edit-photo-button" id="editPhotoButton">✏️</button>
+                </div>
+                <h2 class="profile-name"></h2>
+                <h3 class="profile-name">Turista</h3>
+                <div class="info-line">
+                    <div class="info-icon"><img src="../images/birthday-icon.png" alt="Cumpleaños"></div>
+                    <div class="info-text"><span></span></div>
+                </div>
+                <div class="info-line">
+                    <div class="info-icon"><img src="../images/email-icon.png" alt="Correo"></div>
+                    <div class="info-text"><span></span></div>
+                </div>
+                <div class="info-line">
+                    <div class="info-icon"><img src="../images/phone-icon.png" alt="Teléfono"></div>
+                    <div class="info-text"><span></span></div>
+                </div>
+                
+            </div>
+            <div class="form-section">
+                <b class="titulo">Editar perfil</b><br>
+                <br>
+                <form id="Editar_Usuario" method="POST" action="editarperfil.php" autocomplete="off" novalidate="novalidate">
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" class="form-input form-control" placeholder="Nombre" value="" required>
+                            <small id="nombreError" class="form-label text-danger" style="display: none;"></small>
+                        </div>
+                        <div class="input-group">
+                            <label for="apellidos" class="form-label">Apellidos:</label>
+                            <input type="text" id="apellidos" name="apellidos" class="form-input form-control" placeholder="Apellidos" value="" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento:</label>
+                            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-input form-control" value="">
+                        </div>
+                        <div class="input-group">
+                            <label for="genero" class="form-label">Género:</label>
+                            <select id="genero" name="genero" class="form-input form-control">
+                                <option value="">Selecciona un género</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Prefiero no mencionar">Prefiero no mencionar</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="pais" class="form-label">País:</label>
+                            <select id="pais" name="pais" class="form-input form-control">
+                                <option value="">Selecciona un país</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="telefono" class="form-label">Número de celular:</label>
+                            <input type="text" id="telefono" name="telefono" class="form-input form-control" placeholder="Número de celular" value=""> 
+                        </div>
+                        <div class="flex-item">
+                            <label for="selectPais" class="form-label">País:</label>
+                            <div class="d-flex align-items-center">
+                                <img id="flagIcon" src="" alt="Bandera" style="width: 25px; height: 18px; margin-right: 5px; display: none;">
+                                <select id="selectPais" name="pais" class="form-input form-control" required></select>
+                                <small id="paisError" class="form-label text-danger" style="display: none;"></small>
+                            </div>
+                        </div>
+                        <div class="flex-item">
+                            <label for="lada" class="form-label">Código de marcación:</label>
+                            <input type="text" id="lada" name="lada" class="form-input form-control" placeholder="Código lada" readonly>
+                        </div>
+                        <div class="flex-item">
+                            <label for="phone" class="form-label">Número telefónico:</label>
+                            <input type="tel" id="phone" name="telefono" class="form-input form-control" placeholder="Ingresa el número telefónico" pattern="\d{10}" maxlength="10" required>
+                            <small id="phoneError" class="form-label text-danger" style="display: none;">Número de teléfono no válido</small>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <label for="biografia" class="form-label">Biografía:</label>
+                        <textarea id="biografia" name="biografia" class="form-input form-control" placeholder="Escribe algo sobre ti..." value = ""></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="save-button">Guardar</button>
+                        <button type="button" class="delete-account-button">Desactivar cuenta</button>
+                        <button type="button" class="edit-preferences-button" id="editPreferencesButton">Preferencias</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="preferences-section" id="preferencesSection" style="display: none;">
+                <h2>Editar Preferencias</h2>
+                <div class="preferences-grid">
+                    <button class="preference-button" data-selected="false">Aventura</button>
+                    <button class="preference-button" data-selected="false">Cultura</button>
+                    <button class="preference-button" data-selected="false">Naturaleza</button>
+                    <button class="preference-button" data-selected="false">Museos</button>
+                    <button class="preference-button" data-selected="false">Monumentos</button>
+                    <button class="preference-button" data-selected="false">Festivales</button>
+                    <button class="preference-button" data-selected="false">Religión</button>
+                    <button class="preference-button" data-selected="false">Arte</button>
+                    <button class="preference-button" data-selected="false">Historia</button>
+                    <button class="preference-button" data-selected="false">Historia Natural</button>
+                    <button class="preference-button" data-selected="false">Ciencias</button>
+                    <button class="preference-button" data-selected="false">Agricultura</button>
+                    <button class="preference-button" data-selected="false">Arqueología</button>
+                    <button class="preference-button" data-selected="false">Entretenimiento</button>
+                </div>
+                <div class="button-group">
+                    <button class="save-button">Guardar</button>
+                    <button class="edit-profile-button" id="editProfileButton">Perfil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Div Modal / mensajes emergentos -->
+    <!-- Modal Pregunta -->
+    <div class="modal fade" id="preguntaModal" tabindex="-1" aria-labelledby="succesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header colorprincipal">
+              <h1 class="modal-title fs-5" id="succesModalLabel">¿Estás seguro?</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-8 d-lg-flex align-items-center text-center">
+                  <p>Parece que estás intentando desactivar tu cuenta, ¿Estás seguro que deseas continuar?</p>
+                </div>
+                <div class="col-lg-4 ms-auto contSuccesImg">
+
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- Modal Succes -->
+    <div class="modal fade" id="succesModal" tabindex="-1" aria-labelledby="succesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header colorprincipal">
+              <h1 class="modal-title fs-5" id="succesModalLabel">Sólo un paso más</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-8 d-lg-flex align-items-center text-center">
+                  <div id="succesModalBody">
+                    
+                  </div>
+                  <div class="col-lg-4 ms-auto contSuccesImg">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+              
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- Modal Error -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Upps! Parece que hubo un error</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-8 d-lg-flex align-items-center text-center">
+                    <div id="errorModalBody">
+  
+                    </div><!-- Mensaje de error irá aquí -->
+                </div>
+                <div class="col-lg-4 ms-auto contErrorImg">
+                    <!-- Foto de mascota error -->
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+          </div>
+        </div>
+    </div>
+<script src="../../inicio_sesion/js/signup.js"></script>
+
+</body>
+</html>

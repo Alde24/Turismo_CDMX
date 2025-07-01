@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima Semanal</title>
+    <link rel="icon" href="/ADS_Turismo404/inimgs/pest.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/ADS_Turismo404/navbar/css/navbar.css">
+    <link rel="stylesheet" href="/ADS_Turismo404/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styleclima.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap"
+    
+        rel="stylesheet">
+
+<body>
+
+    <div id="header"></div>
+
+    <div class="nav-links">
+        <button class="back-link" onclick="goBack()" tabindex="0" aria-label="Regresar">
+            <i class="fa-solid fa-arrow-left" style="color: #ffffff; align-items: center;"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Consulta el reporte del clima y sugerencias</h1>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Escribe una ciudad">
+                <button id="searchButton">Buscar</button>
+            </div>
+        </header>
+
+        
+        
+
+        <main>
+            <div class="weather-panel">
+                <h2>Pronóstico para tu próximo destino</h2>
+                <div class="location-pill" id="locationPill"></div>
+                <div class="capsules">
+                    <span class="indicator-capsule">#236372 - CDMX</span>
+                    <span class="indicator-capsule indicator-yellow">A tiempo</span>
+                    <span class="indicator-capsule indicator-green">Despejado</span>
+                </div>
+                <div id="weatherContainer" class="weather-container">
+                </div>
+                <h4 class="subsection-title">Información Adicional</h4>
+                <div id="additionalWeatherInfo" class="additional-weather-info">
+                </div>
+                <h4 class="subsection-title">Sugerencias</h4>
+                <div id="suggestionsContainer" class="suggestions-container">
+                    <!-- Aquí se generarán las sugerencias dinámicamente -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="footer"></div>
+
+    <script src="clima.js"></script>
+    <script src="/ADS_Turismo404/navbar/js/navbar.js"></script>
+    <script src="/ADS_Turismo404/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

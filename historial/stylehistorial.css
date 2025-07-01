@@ -1,0 +1,169 @@
+
+.content-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title-contenedor {
+    margin-bottom: 20px;
+}
+
+.title-contenedor h1 {
+    font-size: 24px;
+    color: #8A4556;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.title-contenedor h2 {
+    font-size: 14px;
+    color: #333;
+    margin-top: 0;
+}
+
+.itineraries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    position: relative;
+}
+
+.itinerary-card {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.itinerary-card:hover {
+    transform: translateY(-5px);
+}
+
+.itinerary-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.itinerary-info {
+    margin-top: 10px;
+}
+
+.itinerary-info h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.itinerary-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+.description {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #A13C64;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-btn:hover {
+    background-color: #A13C64;
+}
+
+.back-btn {
+    background-color: #A13C64;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+
+.back-btn:hover {
+    background-color: #A13C64;
+}
+
+.no-itineraries-message {
+    text-align: center;
+    font-size: 24px;
+    color: #aaa;
+    grid-column: span 3; 
+}
+.profile-image {
+    width: 35px;
+    height: 35px; 
+    border-radius: 50%;
+    margin-left: 15px;
+    cursor: pointer; 
+}
+.back-link {
+    position: fixed; /* Fija el botón en la pantalla */
+    width: 50px;
+    height: 50px;
+    background-color: #A13C64;
+    border: none; /* Eliminamos el borde */
+    border-radius: 30px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    text-decoration: none;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    top: 80px; /* Ajusta la distancia desde la parte superior */
+    left: 30px; /* Ajusta la distancia desde el lado izquierdo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para resaltar */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efectos al pasar el cursor */
+}
+
+.back-link .back-icon {
+
+    width: 30px;
+    /* Ajusta el tamaño del icono */
+    height: 30px;
+    /* Ajusta el tamaño del icono */
+    margin-right: 8px;
+    /* Espacio entre el icono y el texto */
+}
+
+.back-link:hover {
+    opacity: 0.8;
+    /* Efecto al pasar el ratón sobre el botón */
+}
+
+.back-link:focus {
+    outline: none;
+    /* Elimina el contorno al hacer focus */
+}
+
+.back-link .text-dark {
+    color: #ffffff;
+    /* Color del texto */
+}
+
+.back-link:active {
+    opacity: 0.6;
+    /* Efecto al hacer clic en el botón */
+}

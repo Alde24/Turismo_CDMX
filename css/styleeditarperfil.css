@@ -1,0 +1,239 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color: #a13c64;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.logo {
+    width: 100px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.notification-icon-wrapper {
+    position: relative;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #F5DCDC;
+    border-radius: 50%;
+}
+
+.icons img {
+    width: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.profile-image {
+    width: 30px;
+    border-radius: 50%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.pink-background {
+    background-color: #a13c64;
+    width: 90%; 
+    height: 160px;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 40px; 
+    position: relative;
+    z-index: 1; 
+}
+
+.edit-profile {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: -160px; 
+    z-index: 2; 
+}
+
+.back-button {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.profile-info {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px; 
+}
+
+.profile-image-container {
+    position: relative;
+}
+
+.profile-image-large {
+    width: 120px; 
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #a13c64; 
+}
+
+.edit-photo-button {
+    position: absolute;
+    top: 5px; 
+    right: 5px; 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+h2.profile-name {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.info-line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.info-line img {
+    width: 20px; 
+    margin-right: 8px;
+}
+
+.info-text {
+    width: 80%; 
+    text-align: left; 
+}
+
+.form-section {
+    background-color: white; 
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 60%; 
+    margin-left: 20px; 
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-group textarea {
+    resize: vertical;
+    height: 80px; 
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.save-button,
+.edit-preferences-button,
+.edit-profile-button,
+.delete-account-button {
+    background-color: #a13c64;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.preferences-section {
+    margin-top: 20px;
+    background-color: white; 
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.preferences-grid {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+
+.preference-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: white; 
+    transition: background-color 0.3s;
+}
+.preference-button:hover {
+    background-color: #f0f0f0; 
+}

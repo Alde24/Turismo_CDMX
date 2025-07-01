@@ -1,0 +1,97 @@
+.regresar{
+    position: absolute;
+    top: 35px; /* Ajusta esta posición según sea necesario */
+    left: 35px; /* Ajusta esta posición según sea necesario */
+    z-index: 1000;
+}
+
+.regresarBtn{
+    display:inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 3rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.regresarBtn:hover{
+    color: #BD6085;
+    transform: scale(1.1);
+}
+
+.consuccesImg{
+    height: 10rem;
+    background-image: url(../../inimgs/petError.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.form-label {
+    color: #7d4c61;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font: 14px Poppins, sans-serif; 
+}
+.colorprincipal{
+    background-color: #A13C64;
+    color: white;
+}
+.mensajeModalConfirmacion{
+    text-align: justify;
+    width: 95%;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.btn-close{
+    background-color: white;
+    border-radius: 1rem;
+    border: #A13C64;
+}
+
+.btn-secondary{
+    background-color: #797979;
+}
+.btn-secondary:hover{
+    background-color: #B3B2B3;
+}
+
+.btn-primary{
+    background-color:#BD6085;
+    border: #BD6085;
+}
+.btn-primary:hover{
+    background-color:#A13C64;
+}
+
+.labelverificacion{
+    font-weight: bold;
+    color: #BD6085;
+    margin-bottom: 1rem;
+}
+.form-input{
+    border-width: 0.1rem;
+    border-color:gray;
+}
+
+.login-form {
+    border-radius: 100px 0 0 0;
+}
+#loadingMessage{
+    z-index: 1050;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra negra con transparencia */
+    border-radius: 2rem; /* Bordes redondeados */
+    padding: 1rem; /* Espaciado interno */
+  }
+  
+  .spinner-border {
+    color:#9D3A70; /* Cambia este código de color por el que prefieras */
+  }

@@ -1,0 +1,399 @@
+/* Contenedor principal */
+.containerclima {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.weather-panel {
+    justify-content: left;
+    background-color: #f5f5f5;
+    /* Fondo gris claro */
+    border-radius: 12px;
+    /* Bordes redondeados */
+    padding: 30px;
+    /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+    margin-top: 20px;
+    /* Separación del encabezado */
+    margin-bottom: 20px;
+    /* Separación inferior */
+    position: relative;
+}
+
+.weather-panel h2 {
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #a13c64;
+    margin-bottom: 20px;
+
+}
+
+.capsules {
+    display: flex;
+    gap: 10px;
+    /* Espaciado entre cápsulas */
+}
+
+/* Estilo del encabezado */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    color: #a13c64;
+    margin-bottom: 10px;
+}
+
+.subsection-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #a13c64;
+    margin-top: 20px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #a13c64;
+    border-radius: 5px;
+    outline: none;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    background-color: #a13c64;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #562639;
+}
+
+/* Contenedor del clima */
+.weather-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Estilo para las tarjetas de clima (5 días) */
+.weather-box {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: calc(20% - 15px);
+    /* Ajusta el ancho según las tarjetas */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.weather-box:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.weather-box img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    /* Asegura que la imagen se mantenga proporcional sin distorsión */
+}
+
+/* Tarjetas de Información Adicional */
+.additional-weather-info {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que las tarjetas pasen a la siguiente fila si no caben */
+    justify-content: space-between;
+    /* Distribuye espacio entre las tarjetas */
+    gap: 15px;
+    /* Espaciado entre tarjetas */
+    margin-top: 20px;
+    padding: 10px;
+    /* Espaciado interno para el contenedor */
+}
+
+.additional-info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: calc(20% - 10px);
+    /* Ajustado para 4 tarjetas por fila */
+    height: 120px;
+    margin: 5px;
+}
+
+.additional-info-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+}
+
+.additional-info-card p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+.additional-info-card:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.weather-box img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.weather-box p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.weather-box p strong {
+    font-size: 1.2em;
+    color: #a13c64;
+}
+
+/* Lista de sugerencias */
+.suggestions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(60% - 20px);
+    max-height: 80px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.suggestions li:hover {
+    background-color: #f0f8ff;
+}
+
+.message-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    z-index: 1000;
+    animation: fadeIn 0.5s;
+}
+
+.message-box.info {
+    background-color: #2196f3;
+    color: white;
+}
+
+.message-box.success {
+    background-color: #4caf50;
+    color: white;
+}
+
+.message-box.error {
+    background-color: #f44336;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.indicator-capsule {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    background-color: #a13c64;
+    margin-right: 10px;
+    text-align: center;
+    justify-content: right;
+}
+
+/* Estados personalizados */
+.indicator-green {
+    background-color: #7D4C61;
+}
+
+.indicator-yellow {
+    background-color: #D196A3;
+}
+
+.indicator-red {
+    background-color: #F5DCDC;
+}
+
+.location-pill {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    background-color: #a13c64;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.location-icon {
+    width: 12px;
+    /* Tamaño del ícono */
+    height: 12px;
+    /* Tamaño del ícono */
+}
+
+.suggestions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: left;
+}
+
+.suggestion-card {
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente el contenido */
+    gap: 10px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: calc(30% - 10px);
+    /* Ajusta el tamaño según el diseño */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-display: auto;
+}
+
+.suggestion-card img {
+    width: 40px;
+    height: 40px;
+}
+
+.suggestion-card p {
+    font-size: 14px;
+    margin: 0;
+    color: #333;
+    text-align: center;
+    /* Centra horizontalmente el texto dentro del elemento */
+}
+
+.suggestion-card:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.back-link {
+    position: fixed; /* Fija el botón en la pantalla */
+    width: 50px;
+    height: 50px;
+    background-color: #A13C64;
+    border: none; /* Eliminamos el borde */
+    border-radius: 30px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    text-decoration: none;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    top: 80px; /* Ajusta la distancia desde la parte superior */
+    left: 30px; /* Ajusta la distancia desde el lado izquierdo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para resaltar */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efectos al pasar el cursor */
+}
+
+.back-link .back-icon {
+
+    width: 30px;
+    /* Ajusta el tamaño del icono */
+    height: 30px;
+    /* Ajusta el tamaño del icono */
+    margin-right: 8px;
+    /* Espacio entre el icono y el texto */
+}
+
+.back-link:hover {
+    opacity: 0.8;
+    /* Efecto al pasar el ratón sobre el botón */
+}
+
+.back-link:focus {
+    outline: none;
+    /* Elimina el contorno al hacer focus */
+}
+
+.back-link .text-dark {
+    color: #ffffff;
+    /* Color del texto */
+}
+
+.back-link:active {
+    opacity: 0.6;
+    /* Efecto al hacer clic en el botón */
+}

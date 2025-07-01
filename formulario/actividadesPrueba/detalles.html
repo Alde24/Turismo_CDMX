@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Places API</title>
+  </head>
+  <body>
+    <h1>LUGARES DE LA API</h1>
+    <div id="output"></div>
+
+    <script>
+      // Tu clave API de Google
+      const API_KEY = "AIzaSyBlBfvcJxLHgYnFMJBbgLmdzIS_mI2QZZQ";
+      //const placeId="ChIJw22Nzqv_0YURLscJNjBVnBw";
+      const placesId = JSON.parse(
+        localStorage.getItem("IdsLugaresActividades2")
+      );
+      console.log(placesId);
+
+      // Array de promesas para cada fetch
+      const promises = placesId.map((placeId) => {
+        const apiUrl = `https://places.googleapis.com/v1/places/${placeId}?fields=id,displayName,formattedAddress,plusCode,photos,location,priceLevel,priceRange,rating,reviews,nationalPhoneNumber,editorialSummary,generativeSummary,userRatingCount&key=${API_KEY}`;
+
+        return fetch(apiUrl)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `Error en la solicitud para el lugar con ID ${placeId}: ${response.statusText}`
+              );
+            }
+            return response.json();
+          })
+          .catch((error) => {
+            console.error(
+              `Error al obtener datos para el lugar con ID ${placeId}:`,
+              error
+            );
+            return null; // Para manejar errores y continuar con otros fetch
+          });
+      });
+
+      // Procesar todas las promesas
+      Promise.all(promises).then((results) => {
+        const photoContainer = document.getElementById("output");
+
+        results.forEach((data, index) => {
+          if (data) {
+            // Verificar que la respuesta no sea null
+            console.log(`Lugar en posición ${index}:`, data);
+
+            const h2Title = document.createElement("h2");
+            h2Title.textContent = data.displayName.text;
+
+            const h3Title = document.createElement("h3");
+            h3Title.textContent = data.formattedAddress;
+
+            photoContainer.appendChild(h2Title);
+            photoContainer.appendChild(h3Title);
+
+            if (data.photos && Array.isArray(data.photos)) {
+              data.photos.forEach((photo) => {
+                const img = document.createElement("img");
+                img.src = `https://places.googleapis.com/v1/${photo.name}/media?maxHeightPx=400&maxWidthPx=400&key=${API_KEY}`;
+                photoContainer.appendChild(img);
+              });
+            } else {
+              console.log(
+                `No se encontraron fotos para el lugar en posición ${index}.`
+              );
+            }
+          } else {
+            console.log(
+              `No se pudo obtener información para el lugar en posición ${index}.`
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

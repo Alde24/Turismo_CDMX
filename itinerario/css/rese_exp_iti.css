@@ -1,0 +1,190 @@
+h3{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: bold;
+    font-weight: 600;
+}
+.plusButton {
+    /* Config start */
+    --plus_sideLength: 2.5rem;
+    --plus_topRightTriangleSideLength: 0.9rem;
+    /* Config end */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-color: #A13C64;
+    width: var(--plus_sideLength);
+    height: var(--plus_sideLength);
+    background-color:#A13C64;
+    overflow: hidden;
+  }
+  
+  .plusButton::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+  }
+  
+  .plusButton:hover {
+    cursor: pointer;
+  }
+  
+  .plusButton:hover::before {
+    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+  }
+  
+  .plusButton:focus-visible::before {
+    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+  }
+  
+  .plusButton>.plusIcon {
+    fill: white;
+    width: calc(var(--plus_sideLength) * 0.7);
+    height: calc(var(--plus_sideLength) * 0.7);
+    z-index: 1;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+  }
+  
+  .plusButton:hover>.plusIcon {
+    fill: #A13C64;
+    transform: rotate(180deg);
+    
+  }
+  
+  .plusButton:focus-visible>.plusIcon {
+    fill: black;
+    transform: rotate(180deg);
+  }
+
+  /* From Uiverse.io by PriyanshuGupta28 */ 
+.rating {
+    display: inline-block;
+  }
+  
+  .rating input {
+    display: none;
+  }
+  
+  .rating label {
+    float: right;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+  }
+  
+  .rating label:before {
+    content: '\2605';
+    font-size: 30px;
+  }
+  
+  .rating input:checked ~ label,
+  .rating label:hover,
+  .rating label:hover ~ label {
+    color: #A13C64;
+    transition: color 0.3s;
+  }
+
+  /* From Uiverse.io by shadowmurphy */ 
+.input {
+    border: 2px solid transparent;
+    width: 75%;
+    height: 2.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #FFF;
+    border-radius: 10px;
+    transition: all 0.5s;
+    border: 0.5px solid #A13C64;
+    transition-duration: 0.1s;
+  }
+  
+  .input:hover,
+  .input:focus {
+    border: 2px solid #A13C64;
+    box-shadow: 0px 0px 0px 7px rgb(161, 60, 100, 20%);
+    background-color: white;
+  }
+  
+  .caja{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.review-card {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: none;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+  .swiper-slide img {
+    display: block;
+    margin: 0 auto;
+    height: 40rem;
+    width: 100%;
+    object-fit:contain;
+  }
+
+.bgColor{
+    background-color: #A13C64;
+}
+
+.btn-primary{
+    background-color: #A13C64;
+    border: none;
+    margin-top: 1rem;
+}
+.btn-primary:hover{
+    background-color:#D196A3;
+}
+
+.centrar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn-rese-enviar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.regresar{
+  padding-top: 2rem;
+  padding-left: 2rem;
+}

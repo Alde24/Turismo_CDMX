@@ -1,0 +1,110 @@
+<header>
+    <!-- Barra de menú -->
+    <div class="menu conta">
+        <div class="sub-izq">
+            <!--Botón de hamburguesa-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <img src="/ADS_Turismo404/inimgs/menu.png" alt="Menú">
+            </button>
+            <a href="/ADS_Turismo404/index.php" class="logo">
+                <img src="/ADS_Turismo404/inimgs/logo.png" class="menu-icono" alt="Logo">
+            </a>
+            <h1 onclick="window.location.href='/ADS_Turismo404/index.php'">Turismo 404</h1>
+        </div>
+
+        <!-- Barra de búsqueda-->
+        <!--div class="input-group busqueda">
+            <input class="form-control" type="search" placeholder="Búsqueda" aria-label="Search">
+            <button class="btn btn-light" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                    <path d="M21 21l-6 -6" />
+                </svg>
+            </button>
+        </div-->
+
+        <!-- Iconos -->
+        <div class="submenu">
+            <!-- <img src="/ADS_Turismo404/inimgs/notif.png" alt="Notificaciones" class="notif-icon" onclick="toggleNotifications()"> -->
+            <a href="/ADS_Turismo404/clima/clima.html">
+                <img src="/ADS_Turismo404/inimgs/clima.png" alt="Clima">
+            </a>
+            <a href="/ADS_Turismo404/editarperfil/php/editarperfil.php">
+                <img src="/ADS_Turismo404/inimgs/user.png" alt="Usuario" class="menu-iconoUs">
+            </a>
+            <a href="/ADS_Turismo404/php/cerrar_sesion.php">
+                <img src="/ADS_Turismo404/inimgs/cerrar.png" alt="cerrar">
+            </a>
+        </div>
+        <!--
+        //Cuadro de notificaciones
+        <div id="notifications" class="notifications-dropdown">
+            <ul>
+                <li onclick="window.location.href='/ADS_Turismo404/formulario/html/formulario.html'"><span>Tu itinerario está pendiente.</span></li>
+                <li onclick="window.location.href='/ADS_Turismo404/editarperfil/php/editarperfil.php'"><span>¡Recuerda configurar tus preferencias!</span></li>
+            </ul>
+            <button class="btn-notif" onclick="window.location.href='/ADS_Turismo404/notificaciones/notificaciones.html'">Ver todas</button>
+        </div>
+        -->
+
+        <!-- Desplegable -->
+        <div class="offcanvas offcanvas-start custom-offcanvas" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">MENÚ</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="nav-list">
+                    <!--
+                    <li class="nav-item">
+                        <a href="/ADS_Turismo404/favoritos/favoritos.html">
+                            <img src="/ADS_Turismo404/inimgs/star.png" alt="Favoritos" class="icon"> 
+                            <div class="text-container">
+                                <span class="item-title">Favoritos</span>
+                                <span class="item-subtitle">Revisa tus lugares favoritos</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ADS_Turismo404/historial/historial.html">
+                            <img src="/ADS_Turismo404/inimgs/clock.png" alt="Historial" class="icon"> 
+                            <div class="text-container">
+                                <span class="item-title">Historial</span>
+                                <span class="item-subtitle">Historial de itinerarios creados</span>
+                            </div>
+                        </a>
+                    </li>
+                    -->
+                    <li class="nav-item">
+                        <a href="/ADS_Turismo404/editarperfil/php/editarperfil.php">
+                            <img src="/ADS_Turismo404/inimgs/edituser.png" alt="Editar cuenta" class="icon"> 
+                            <div class="text-container">
+                                <span class="item-title">Editar cuenta</span>
+                                <span class="item-subtitle">Edita detalles de tu cuenta</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ADS_Turismo404/formulario/html/Formulario.html">
+                            <img src="/ADS_Turismo404/inimgs/add.png" alt="Crear itinerario" class="icon"> 
+                            <div class="text-container">
+                                <span class="item-title">Crear itinerario</span>
+                                <span class="item-subtitle">Crea un nuevo itinerario</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ADS_Turismo404/php/cerrar_sesion.php">
+                            <img src="/ADS_Turismo404/inimgs/cerrar.png" alt="Cerrar sesión" class="icon"> 
+                            <div class="text-container">
+                                <span class="item-title">Cerrar sesión</span>
+                                <span class="item-subtitle">Salir de la cuenta</span>
+                            </div>
+                        </a>
+                    </li>                                
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
